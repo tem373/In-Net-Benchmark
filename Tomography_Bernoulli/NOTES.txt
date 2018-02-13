@@ -38,7 +38,13 @@ not sure how best to implement the sending route
 basically just receives the packet, with some additional functionality
 (reporting, etc)
 
+-----------------------------------------------------------------------
+-> host.py
+implement with these functionalities:
 
+send()
+recv()
+duplicate()
 
 
 

@@ -16,4 +16,9 @@ class Link:
             # "Shift" queue upward one
             self.link_queue = self.link_queue[1:]
 
-    if rand_number < .05 
+    def isdropped():
+        rand_number = random.uniform(0,1)
+        if rand_number <= bernoulli_alpha:
+            return True
+        else:
+            return True

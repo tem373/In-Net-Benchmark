@@ -8,7 +8,10 @@ class Link:
 
     # Not sure if enforcing queue limit is needed here
     def recv(self, pkt):
-        self.link_queue.append(pkt)
+        droptest = isdropped()
+        if (droptest == False):
+            self.link_queue.append(pkt)
+        else if (droptest == True):
 
     def tick(self, tick):
         if(len(self.link_queue) != 0):
@@ -21,4 +24,4 @@ class Link:
         if rand_number <= bernoulli_alpha:
             return True
         else:
-            return True
+            return False

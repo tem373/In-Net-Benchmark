@@ -38,8 +38,14 @@ class host:
             self.in_order_rx_seq = pkt.seq_num
             self.ready_to_send = True
 
-            # Accounting for dropped packets
-            success_queue.append(1)
+            # Accounting for dropped packet
+            # Only leaf nodes can perform measurement (we here assume routers have
+            # no measurement functionality. Perform this test to see if a node
+            # is an endpoint and if so measure successes/failures
+            if (len(downstream_nodes) == 0):
+                success_queue.append(1)
+            else:
+                success_queue.append(0)
 
         else:
             self.in_order_rx_seq = pkt.seq_num

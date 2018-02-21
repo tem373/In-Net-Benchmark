@@ -5,6 +5,8 @@ class Packet:
     # Only data point needed is a simple sequence number
     def __init__(self, seq_num):
         self.seq_num = seq_num
+        
+        #self.wasdropped = False     #possibly implement this in link?
 
     # Allows user to return the sequence number
     def __repr__(self):

@@ -19,7 +19,7 @@ def est_bernoulli_prob(k):
     alpha_queue = []
 
     find_gamma(k)
-    infer(k, 1)     # 1 implies certainty of root node succeeding (sender)
+    infer(k, 1, alpha_queue)     # 1 implies certainty of root node succeeding (sender)
 
     return yhat_queue, gamma_queue, alpha_queue
 
@@ -64,8 +64,13 @@ def find_gamma(k, yhat_queue, gamma_queue):
 def infer(k, A, alpha_queue):
     """ Calculates the actual alpha value"""
 
+    A_k = 
 
+    alpha_k = float(A_k) / A
+    alpha_queue.append(alpha_k)
 
+    for j in k.downstream_nodes:
+        infer(j, A_k, alpha_queue)
 
 
 

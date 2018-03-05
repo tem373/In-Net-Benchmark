@@ -11,15 +11,27 @@ def check_recvrs(num_recvrs):
         raise argparse.ArgumentTypeError("Available experiments are 2 and 4 receivers")
     return num_recvrs
 
+def check_mode(mode):
+    if (mode not in ['sdn', 'tomography']):
+        raise argparse.ArgumentTypeError("Run in either <sdn> (smart router) or <tomography> mode")
+
 
 # Argparse section to take in specified parameters from command-line
 parser = argparse.ArgumentParser(description="Network Tomography Simulator with Bernoulli losses.")
+optional_args = parser._action_groups.pop()
 
+# Required Args
 required_args = parser.add_argument_group("Required Arguments:")
-required_args.add_argument('--num_recvrs', dest='num_recvrs', type=check_recvrs,
-    help='Specify 2 or 4 receiver experiment', required=True)
 required_args.add_argument('--ticks', dest='ticks', type=int, 
-    help='How many rounds of packet traffic to send', required-True)
+    help='How many rounds of packet traffic to send', required=True)
+
+# Optional Args
+required_args.add_argument('--num_recvrs', dest='num_recvrs', type=check_recvrs,
+    help='Specify 2 or 4 receiver experiment', required=True, default=2)
+
+required_args.add_argument('--mode', dest='mode', type=check_mode,
+    help='Run in either <tomography> or <sdn> mode', required=True, default='tomography')
+parser._action_groups.append(optional_args)
 
 
 # Argument Parsing
@@ -40,7 +52,7 @@ if(args.num_recvrs == 2):
     sender = host(router)
 
     # Initialize links (3 separate links)
-    bernoullis = [0.05, 0.02, 0.01]         # Change at user's discretion
+    bernoullis = [0.05, 0.05, 0.05]         # Change at user's discretion
     sender_router_link = Link(bernoullis[0])
     router_recv1_link = Link(bernoullis[1])
     router_recv2_link = Link(bernoullis[2])

@@ -23,6 +23,7 @@ def est_bernoulli_prob(k):
 
     return yhat_queue, gamma_queue, alpha_queue
 
+
 def find_gamma(k, yhat_queue, gamma_queue):
     """ Add docstring"""
 
@@ -61,10 +62,17 @@ def find_gamma(k, yhat_queue, gamma_queue):
     #return yhat_k, gamma_k
 
 
-def infer(k, A, alpha_queue):
+def infer(k, A, alpha_queue, gamma_queue):
     """ Calculates the actual alpha value"""
 
-    A_k = 
+    # "Solvefor" method simple implementation
+    k_gamma = (1 - gamma_queue[k]) / A
+    mult_result = 1    
+    for j in k.downstream_nodes:
+        j_gamma = gamma_queue[j]
+        mult_result = mult_result * ((1 - j_gamma) / A)
+
+    A_k = mult_result / k_gamma
 
     alpha_k = float(A_k) / A
     alpha_queue.append(alpha_k)

@@ -2,9 +2,10 @@ import sys
 import argparse
 import csv
 
-import network
-import host
-import algorithms
+from network import *
+from host import *
+from algorithms import *
+from packet import *
 
 def check_recvrs(num_recvrs):
     if (num_recvrs not in [2, 4]):
@@ -12,7 +13,7 @@ def check_recvrs(num_recvrs):
     return num_recvrs
 
 def check_mode(mode):
-    if (mode not in ['sdn', 'tomography']):
+    if (mode not in ["sdn", "tomography"]):
         raise argparse.ArgumentTypeError("Run in either <sdn> (smart router) or <tomography> mode")
 
 
@@ -26,30 +27,29 @@ required_args.add_argument('--ticks', dest='ticks', type=int,
     help='How many rounds of packet traffic to send', required=True)
 
 # Optional Args
-required_args.add_argument('--num_recvrs', dest='num_recvrs', type=check_recvrs,
-    help='Specify 2 or 4 receiver experiment', required=True, default=2)
+optional_args.add_argument('--num_recvrs', dest='num_recvrs', type=check_recvrs,
+    help='Specify 2 or 4 receiver experiment', required=False, default=2)
 
-required_args.add_argument('--mode', dest='mode', type=check_mode,
-    help='Run in either <tomography> or <sdn> mode', required=True, default='tomography')
+optional_args.add_argument('--mode', dest='mode', type=check_mode,
+    help='Run in either <tomography> or <sdn> mode', required=False, default="tomography")
 parser._action_groups.append(optional_args)
 
 
 # Argument Parsing
 args = parser.parse_args()
-for arg in args:
-    print(arg)
+print(args)
 
 
-############################### Initialization #################################
+############################## 2 Receiver Setup ################################
 
 # Based on user input, initialize routers and receivers
 if(args.num_recvrs == 2):
-    receiver1 = host() #need to add args
-    receiver2 = host()
-    router = host(receiver1, receiver2)
 
-    # Initialize sender
-    sender = host(router)
+    # Initialize hosts
+    receiver1 = Host('receiver1') 
+    receiver2 = Host('receiver2')
+    router = Host('router', receiver1, receiver2)
+    sender = Host('sender', router)
 
     # Initialize links (3 separate links)
     bernoullis = [0.05, 0.05, 0.05]         # Change at user's discretion
@@ -57,41 +57,68 @@ if(args.num_recvrs == 2):
     router_recv1_link = Link(bernoullis[1])
     router_recv2_link = Link(bernoullis[2])
 
+    # Calculation Infrastructure
+    hosts = [sender, router, receiver1, receiver2]
+    yhat_dict = {'sender': [], 'router': [], 'receiver1': [], 'receiver2': []}
+    gamma_dict = {'sender': 0, 'router': 0, 'receiver1': 0, 'receiver2': 0}             
+    alpha_dict = {'sender': [], 'router': [], 'receiver1': [], 'receiver2': []}
 
 ############################### Run Simulation #################################
 
     for tick in range(0, args.ticks):
+
         sender.send(tick, sender_router_link)
-        sender_router_link.tick(tick)
+        sender_router_link.tick(tick, router)
         router.send(tick, router_recv1_link)
         router.send(tick, router_recv2_link)
+        router_recv1_link.tick(tick, receiver1)
+        router_recv2_link.tick(tick, receiver2)
 
 
-########################### Algorithm calculations #############################
+########################### Tomography calculations ############################
+    
+        #if(args.mode == "tomography"):
+        if(True):
 
-    iterated_bernoullis = []
-    recv_hosts = [router, receiver1, receiver2]  # definitely need a better way to do this
-                                                    # (needs to be recursive - change later   
+            print(tick)
 
-    for host in recv_hosts:
-        y, g, b = est_bernoulli_prob(host)
-        iterated_bernoullis.append(b)
+            for host in hosts:
+                yhat, gamma, alpha = est_bernoulli_prob(host, yhat_dict, gamma_dict, alpha_dict)
+                
+                #yhat_dict[host.name][tick] = yhat
+                yhat_dict[host.name].append(yhat)
+                gamma_dict[host.name] = gamma
+                #alpha_dict[host.name][tick] = alpha
+                alpha_dict[host.name].append(alpha)
         
+        if(args.mode == "sdn"):
+            pass
 
     # write this to CSV? do something to analyze data
-    fi = open(results.csv, 'wb')
-    wr = csv.writer(fi)
-    
-    for item in iterated_bernoullis:
-        wr.writerow(item)
+    for host in hosts:
+
+        print(yhat_dict[host.name])
+
+    for host in hosts:
+        #fi = open('results/' + host.name + '.csv', 'wb')
+        #wr = csv.writer(fi)    
+        #for item in alpha_dict[host.name]:
+        #    wr.writerow(item)
+        with open('results/' + host.name + '.csv', 'w') as outfile:
+            for item in alpha_dict[host.name]:
+                outfile.write(str(item))
+                outfile.write('\n')
 
 
 
 
+############################## 4 Receiver Setup ################################        
 
-        
+if(args.num_recvrs == 4):      # After debugging 2, fill this out
+    pass
+
+
 """
-else if(args.num_recvrs == 4):
     receiver1 = host() 
     receiver2 = host()
     receiver3 = host()

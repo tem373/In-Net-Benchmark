@@ -8,20 +8,22 @@ class Link:
 
     # Not sure if enforcing queue limit is needed here
     def recv(self, pkt):
-        droptest = isdropped()
+        droptest = self.isdropped()
         if (droptest == False):
             self.link_queue.append(pkt)
-        else if (droptest == True):
+        elif (droptest == True):
+            pass
 
-    def tick(self, tick):
+    def tick(self, tick, host):
         if(len(self.link_queue) != 0):
             head = self.link_queue[0]
             # "Shift" queue upward one
             self.link_queue = self.link_queue[1:]
+            host.recv(head, tick)
 
-    def isdropped():
+    def isdropped(self):
         rand_number = random.uniform(0,1)
-        if rand_number <= bernoulli_alpha:
+        if rand_number <= self.bernoulli_alpha:
             return True
         else:
             return False

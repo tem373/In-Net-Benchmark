@@ -3,7 +3,8 @@
 class Packet:
 
     # Only data point needed is a simple sequence number
-    def __init__(self, seq_num):
+    def __init__(self, sent_tick, seq_num):
+        self.sent_tick = sent_tick
         self.seq_num = seq_num
         
         #self.wasdropped = False     #possibly implement this in link?

@@ -1,16 +1,19 @@
-import packet
+from packet import *
 
-class host:
-    def __init__(self, *downstream_nodes):
+class Host:
+    def __init__(self, name, *downstream_nodes):
         self.ready_to_send = True
         self.in_order_rx_seq = -1       # Sequence number accounting
+        self.name = name        
+        self.downstream_nodes = []
 
         # To keep track of 
-        success_queue = []
+        self.success_queue = []
 
         # To check if it is a receiver
-        if (downstream_nodes == None):
+        if (len(downstream_nodes) == 0):
             self.downstream_nodes = []
+            
         else:
             for node in downstream_nodes:
                 self.downstream_nodes.append(node)
@@ -19,7 +22,7 @@ class host:
     def send(self, tick, link):
 
         # Note: no mechanism for retransmitting a dropped packet here
-        if(self.ready_to_send = True):
+        if(self.ready_to_send == True):
             
             # Create new packet
             new_seq_num = self.in_order_rx_seq + 1
@@ -30,6 +33,7 @@ class host:
 
             # possibly have to add a packet sent time
             self.ready_to_send = False
+            print("Host " + self.name + " sent packet #: " + str(new_packet.seq_num))
 
 
     def recv(self, pkt, tick):
@@ -42,17 +46,20 @@ class host:
             # Only leaf nodes can perform measurement (we here assume routers have
             # no measurement functionality. Perform this test to see if a node
             # is an endpoint and if so measure successes/failures
-            if (len(downstream_nodes) == 0):
-                success_queue.append(1)
+            if (len(self.downstream_nodes) == 0):
+                self.success_queue.append(1)
             else:
-                success_queue.append(0)
+                self.success_queue.append(0)
 
         else:
             self.in_order_rx_seq = pkt.seq_num
             self.ready_to_send = True
             
             # Accounting for dropped packets
-            success_queue.append(0)
+            self.success_queue.append(0)
+
+        print("Host " + self.name + " received packet #: " + str(pkt.seq_num))
+        print("Host " + self.name + " success queue: " + str(self.success_queue))
 
 
 
@@ -61,10 +68,5 @@ class host:
 
 
 
-    # Possibly don't need these two functions, hold onto for now
-    def duplicate(self, pkt):
-        pass
 
-    def report():
-        print("Send Status: " + self.ready_to_send)
-        print("Current Sequence #: " + self.in_order_rx_seq)
+

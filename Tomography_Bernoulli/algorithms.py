@@ -8,61 +8,62 @@
               nodes, estimated from children otherwise
 """
 
-def est_bernoulli_prob(k, yhat_queue, gamma_queue, alpha_queue):
+def est_bernoulli_prob(k, yhat_queue, gamma_queue, alpha_queue, tick):
     """ Main function for estimating the bernoulli packet drop probability
     in each link. Takes as input link k and calculates the alpha"""
 
-    #n = len(k.success_queue)
-
-    #yhat_queue = []
-    #gamma_queue = []
-    #alpha_queue = []
-
-    yhat, gamma = find_gamma(k, yhat_queue, gamma_queue)
+    yhat, gamma = find_gamma(k, yhat_queue, gamma_queue, tick)
     alpha = infer(k, 1, alpha_queue, gamma_queue)     # 1 implies certainty of root node succeeding (sender)
+
+    #print("Yhat: " + str(yhat) + " gamma: " + str(gamma) + " alpha: " + str(alpha))
 
     return yhat, gamma, alpha
 
 
-def find_gamma(k, yhat_queue, gamma_queue):
-    """ Add docstring"""
+def find_gamma(k, yhat_queue, gamma_queue, tick):
+    """ Computes gamma value and success values of non-receiver routers"""
 
-    n = len(k.success_queue)
+    #n = len(k.success_queue)
+    n = tick+1    
+    
 
     yhat_k = 0
     gamma_k = 0.0
 
     # for loop of all the downstream links - maybe pass array of links?
     for j in k.downstream_nodes:
-        find_gamma(j, yhat_queue, gamma_queue)
+        find_gamma(j, yhat_queue, gamma_queue, tick)
 
-        for i in range(1, n):
+        for i in range(0, n):
+
+            #print(k.name + ": downstream nodes: " + str(len(k.downstream_nodes)))
 
             # if not leaf node, check if any children succeeded. 1 if yes, 0 if no 
-            if len(k.downstream_nodes) == 0:
+            if not k.downstream_nodes:
                 #yhat_k.append(k.success_queue[i])
                 yhat_k = k.success_queue[i]
                 print("success queue: " + str(k.success_queue[i]))
             
             else:
+                #print("didnt reach success queue")
                 counter = 0
                 for node in k.downstream_nodes:
                     if (node.success_queue[i] == 1):
                         counter = counter + 1
                 if (counter > 0):
-                    #yhat_k.append(1)
+                    
                     yhat_k = 1
                 else:
-                    #yhat_k.append(0)
+                    
                     yhat_k = 0
+        
         #print("Yhat: " + str(yhat_k))
 
         # calculate gamma        
         tempsum = 0
         for i in range(1, n):
-            #tempsum += yhat_k[i]
-            tempsum += yhat_queue[i]
-        
+            
+            tempsum += yhat_queue[k.name][i-1]
         if(n > 0):
             gamma_k = float(tempsum) / n
 
@@ -70,11 +71,7 @@ def find_gamma(k, yhat_queue, gamma_queue):
     #print("Gamma: " + str(gamma_k))
 
     return yhat_k, gamma_k
-    
 
-    #yhat_queue.append(yhat_k)
-    #gamma_queue.append(gamma_k)
-    #return yhat_k, gamma_k
 
 
 def infer(k, A, alpha_queue, gamma_queue):
@@ -93,14 +90,12 @@ def infer(k, A, alpha_queue, gamma_queue):
 
     #print("Alpha K: " + str(alpha_k))
 
-    return alpha_k
-    
-    #alpha_queue.append(alpha_k)
+    #return alpha_k
 
     for j in k.downstream_nodes:
         infer(j, A_k, alpha_queue, gamma_queue)
 
-
+    return alpha_k
 
 
 

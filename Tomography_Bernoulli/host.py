@@ -19,17 +19,20 @@ class Host:
                 self.downstream_nodes.append(node)
 
 
-    def send(self, tick, link):
+    def send(self, tick, *links):
+        """If multiple links are provide, multicast traffic is being sent"""
 
         # Note: no mechanism for retransmitting a dropped packet here
         if(self.ready_to_send == True):
             
             # Create new packet
             new_seq_num = self.in_order_rx_seq + 1
-            new_packet = Packet(tick, new_seq_num)
+            new_packet = Packet(tick)            
+            #new_packet = Packet(tick, new_seq_num)
             
-            # Deliver packet to the link
-            link.recv(new_packet)
+            # Deliver packet to the link (or links if multicast)
+            for link in links:
+                link.recv(new_packet)
 
             # possibly have to add a packet sent time
             self.ready_to_send = False
@@ -38,7 +41,8 @@ class Host:
 
     def recv(self, pkt, tick):
         # Update sequence numbers        
-        if (pkt.seq_num - self.in_order_rx_seq == 1):
+        #if (pkt.seq_num - self.in_order_rx_seq == 1):
+        if (pkt.was_dropped == False):        
             self.in_order_rx_seq = pkt.seq_num
             self.ready_to_send = True
 

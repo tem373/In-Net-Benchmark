@@ -12,6 +12,8 @@ class Link:
         if (droptest == False):
             self.link_queue.append(pkt)
         elif (droptest == True):
+            pkt.was_dropped = True
+            self.link_queue.append(pkt)
             pass
 
     def tick(self, tick, host):

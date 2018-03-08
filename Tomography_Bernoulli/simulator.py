@@ -15,7 +15,7 @@ def check_recvrs(num_recvrs):
 def check_mode(mode):
     if (mode not in ["sdn", "tomography"]):
         raise argparse.ArgumentTypeError("Run in either <sdn> (smart router) or <tomography> mode")
-
+    return mode
 
 # Argparse section to take in specified parameters from command-line
 parser = argparse.ArgumentParser(description="Network Tomography Simulator with Bernoulli losses.")
@@ -52,10 +52,13 @@ if(args.num_recvrs == 2):
     sender = Host('sender', router)
 
     # Initialize links (3 separate links)
-    bernoullis = [0.05, 0.05, 0.05]         # Change at user's discretion
+    bernoullis = [0.1, 0.1, 0.1]         # Change at user's discretion
     sender_router_link = Link(bernoullis[0])
     router_recv1_link = Link(bernoullis[1])
     router_recv2_link = Link(bernoullis[2])
+
+    #Initial link to set successes in sender
+    initial_link = Link(0.0)
 
     # Calculation Infrastructure
     hosts = [sender, router, receiver1, receiver2]
@@ -66,29 +69,30 @@ if(args.num_recvrs == 2):
 ############################### Run Simulation #################################
 
     for tick in range(0, args.ticks):
+        # Initial Send
+        initial_link.tick(tick, sender)
 
         sender.send(tick, sender_router_link)
         sender_router_link.tick(tick, router)
-        router.send(tick, router_recv1_link)
-        router.send(tick, router_recv2_link)
+        router.send(tick, router_recv1_link, router_recv2_link)
+        #router.send(tick, router_recv2_link)
         router_recv1_link.tick(tick, receiver1)
         router_recv2_link.tick(tick, receiver2)
+
+        sender.ready_to_send = True
 
 
 ########################### Tomography calculations ############################
     
-        #if(args.mode == "tomography"):
-        if(True):
+        if(args.mode == "tomography"):
 
-            print(tick)
+            print("tick: " + str(tick))
 
             for host in hosts:
-                yhat, gamma, alpha = est_bernoulli_prob(host, yhat_dict, gamma_dict, alpha_dict)
+                yhat, gamma, alpha = est_bernoulli_prob(host, yhat_dict, gamma_dict, alpha_dict, tick)
                 
-                #yhat_dict[host.name][tick] = yhat
                 yhat_dict[host.name].append(yhat)
                 gamma_dict[host.name] = gamma
-                #alpha_dict[host.name][tick] = alpha
                 alpha_dict[host.name].append(alpha)
         
         if(args.mode == "sdn"):
@@ -97,13 +101,10 @@ if(args.num_recvrs == 2):
     # write this to CSV? do something to analyze data
     for host in hosts:
 
-        print(yhat_dict[host.name])
+        print(host.name + " " + str(yhat_dict[host.name]))
 
     for host in hosts:
-        #fi = open('results/' + host.name + '.csv', 'wb')
-        #wr = csv.writer(fi)    
-        #for item in alpha_dict[host.name]:
-        #    wr.writerow(item)
+
         with open('results/' + host.name + '.csv', 'w') as outfile:
             for item in alpha_dict[host.name]:
                 outfile.write(str(item))

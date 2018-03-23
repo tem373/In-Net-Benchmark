@@ -52,7 +52,7 @@ if(args.num_recvrs == 2):
     sender = Host('sender', router)
 
     # Initialize links (3 separate links)
-    bernoullis = [0.1, 0.1, 0.1]         # Change at user's discretion
+    bernoullis = [0.2, 0.1, 0.1]         # Change at user's discretion
     sender_router_link = Link(bernoullis[0])
     router_recv1_link = Link(bernoullis[1])
     router_recv2_link = Link(bernoullis[2])
@@ -65,11 +65,17 @@ if(args.num_recvrs == 2):
     yhat_dict = {'sender': [], 'router': [], 'receiver1': [], 'receiver2': []}
     gamma_dict = {'sender': 0, 'router': 0, 'receiver1': 0, 'receiver2': 0}             
     alpha_dict = {'sender': [], 'router': [], 'receiver1': [], 'receiver2': []}
+    #hosts = [receiver2, receiver1, router, sender]
+    #yhat_dict = {'receiver2': [], 'receiver1': [], 'router': [], 'sender': []}
+    #gamma_dict = {'receiver2': 0, 'receiver1': 0, 'router': 0, 'sender': 0}
+    #alpha_dict = {'receiver2': [], 'receiver1': [], 'router': [], 'sender': []}
 
 ############################### Run Simulation #################################
 
     for tick in range(0, args.ticks):
         # Initial Send
+        first_packet = Packet(tick)
+        initial_link.recv(first_packet)
         initial_link.tick(tick, sender)
 
         sender.send(tick, sender_router_link)
@@ -101,7 +107,9 @@ if(args.num_recvrs == 2):
     # write this to CSV? do something to analyze data
     for host in hosts:
 
-        print(host.name + " " + str(yhat_dict[host.name]))
+        print(host.name + " Yhat:  " + str(yhat_dict[host.name]))
+        print(host.name + " gamma: " + str(gamma_dict[host.name]))
+        #print(host.name + " alpha: " + str(alpha_dict[host.name]))
 
     for host in hosts:
 

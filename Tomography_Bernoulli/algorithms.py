@@ -23,19 +23,14 @@ def est_bernoulli_prob(k, yhat_queue, gamma_queue, alpha_queue, tick):
 def find_gamma(k, yhat_queue, gamma_queue, tick):
     """ Computes gamma value and success values of non-receiver routers"""
 
-    #n = len(k.success_queue)
-    n = tick+1    
-    
+    n = tick+1
 
     yhat_k = 0
     gamma_k = 0.0
 
     if not k.downstream_nodes:
-        #print("Endhost")
-        #yhat_k.append(k.success_queue[i])
         for i in range(0, n):        
             yhat_k = k.success_queue[i]
-            #print("success queue: " + str(k.success_queue[i]))
 
     # for loop of all the downstream links - maybe pass array of links?
     else:
@@ -45,16 +40,6 @@ def find_gamma(k, yhat_queue, gamma_queue, tick):
 
             for i in range(0, n):
 
-            #print(k.name + ": downstream nodes: " + str(len(k.downstream_nodes)))
-
-            # if not leaf node, check if any children succeeded. 1 if yes, 0 if no 
-            #if not k.downstream_nodes:
-                #yhat_k.append(k.success_queue[i])
-            #    yhat_k = k.success_queue[i]
-            #    print("success queue: " + str(k.success_queue[i]))
-            
-            #else:
-                #print("didnt reach success queue")
                 counter = 0
                 for node in k.downstream_nodes:
                     if (node.success_queue[i] == 1):
@@ -65,18 +50,17 @@ def find_gamma(k, yhat_queue, gamma_queue, tick):
                 else:
                     
                     yhat_k = 0
-        
-        #print("Yhat: " + str(yhat_k))
 
     # calculate gamma        
     tempsum = 0
-    for i in range(1, n):   # only 9 rounds
+    for i in range(1, n):
         tempsum += yhat_queue[k.name][i-1]  # yhat_queue only consists of n-1 elements
-    if(n > 0):
-        gamma_k = float(tempsum) / n
+    tempsum += yhat_k
+    gamma_k = float(tempsum) / n
 
-    #print("Yhat: " + str(yhat_k))
-    #print("Gamma: " + str(gamma_k))
+    if(k.name == 'sender'):
+        yhat_k = 1
+        gamma_k = 1.0
 
     return yhat_k, gamma_k
 
@@ -85,25 +69,77 @@ def find_gamma(k, yhat_queue, gamma_queue, tick):
 def infer(k, A, alpha_queue, gamma_queue):
     """ Calculates the actual alpha value"""
 
+    gamma = gamma_queue[k.name]
+
+    pre_alpha = 1 - gamma
+    #print(k.name + " pre-alpha: " + str(pre_alpha))
+    #if(k.name == 'sender'):
+    #    alpha = 0
+    #    return alpha
+
+    #if not k.downstream_nodes:
+    #    A = pre_alpha        
+    #    alpha = pre_alpha
+    #    return alpha
+
+    if(k.downstream_nodes):
+        
+        #temp = 0.0
+
+        #if(k.name == 'sender'):
+        #    alpha = 0
+        #    return alpha
+
+        A = pre_alpha
+        alpha = pre_alpha # - (1 - A)
+        #A = 1 - pre_alpha
+        for j in k.downstream_nodes:
+            infer(j, A, alpha_queue, gamma_queue)
+            
+        return alpha
+
+    elif not k.downstream_nodes:
+        #A = pre_alpha        
+        alpha = pre_alpha - (1 - A)
+        
+    
+        return alpha
+
+
+
+
+
+
+
+# GARBAGE CODE
+
     # "Solvefor" method simple implementation
-    k_gamma = (1 - gamma_queue[k.name]) / A
-    mult_result = 1    
-    for j in k.downstream_nodes:
-        j_gamma = gamma_queue[j.name]
-        mult_result = mult_result * ((1 - j_gamma) / A)
+    #k_gamma = (1 - gamma_queue[k.name]) / A
 
-    A_k = mult_result / k_gamma
+    #print("gamma queue: " + str(gamma_queue))
+    #print("k_gamma: " + str(k_gamma))
 
-    alpha_k = float(A_k) / A
+    #mult_result = 1
+    
+    #if(k.downstream_nodes):
+    #    for j in k.downstream_nodes:
+    #        j_gamma = gamma_queue[j.name]
+    #        mult_result = mult_result * ((1 - j_gamma) / A)
+
+    #A_k = k_gamma / mult_result
+
+    #alpha_k = float(A_k) / A
 
     #print("Alpha K: " + str(alpha_k))
 
     #return alpha_k
 
-    for j in k.downstream_nodes:
-        infer(j, A_k, alpha_queue, gamma_queue)
+    #for j in k.downstream_nodes:
+    #    infer(j, A_k, alpha_queue, gamma_queue)
 
-    return alpha_k
+    #return alpha_k
+
+
 
 
 

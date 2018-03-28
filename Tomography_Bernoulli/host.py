@@ -36,12 +36,13 @@ class Host:
                 new_packet = Packet(tick)
 
                 # Check if packet got dropped
-                if(self.success_queue != [] and self.success_queue[tick] == 0):
-                    new_packet.wasdropped = True
+                #if(self.success_queue != [] and self.success_queue[tick] == 0):
+                if(self.success_queue[tick] == 0):                
+                    new_packet.was_dropped = True
+                #print("Drop Status: " + str(new_packet.was_dropped))
 
                 link.recv(new_packet)
-                print("Host " + self.name + " sent packet #: " + str(new_packet.seq_num) + " status: " + str(new_packet.was_dropped))
-
+                #print("Host " + self.name + " sent packet #: " + str(new_packet.seq_num) + " status: " + str(new_packet.was_dropped))
 
             # possibly have to add a packet sent time
             self.ready_to_send = False
@@ -59,12 +60,9 @@ class Host:
             # Only leaf nodes can perform measurement (we here assume routers have
             # no measurement functionality. Perform this test to see if a node
             # is an endpoint and if so measure successes/failures
-            
-            print("Host " + self.name + " received packet #: " + str(pkt.seq_num))
-            #if (len(self.downstream_nodes) == 0):
+
             self.success_queue.append(1)
-            #else:
-            #    self.success_queue.append(0)
+
 
         else:
             self.in_order_rx_seq = pkt.seq_num
@@ -73,8 +71,7 @@ class Host:
             # Accounting for dropped packets
             self.success_queue.append(0)
 
-        #print("Host " + self.name + " received packet #: " + str(pkt.seq_num))
-        print("Host " + self.name + " success queue: " + str(self.success_queue))
+        #print("Host " + self.name + " success queue: " + str(self.success_queue))
 
 
 

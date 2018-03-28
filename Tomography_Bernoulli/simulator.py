@@ -39,8 +39,9 @@ parser._action_groups.append(optional_args)
 args = parser.parse_args()
 print(args)
 
-
+################################################################################
 ############################## 2 Receiver Setup ################################
+################################################################################
 
 # Based on user input, initialize routers and receivers
 if(args.num_recvrs == 2):
@@ -65,10 +66,10 @@ if(args.num_recvrs == 2):
     yhat_dict = {'sender': [], 'router': [], 'receiver1': [], 'receiver2': []}
     gamma_dict = {'sender': 0, 'router': 0, 'receiver1': 0, 'receiver2': 0}             
     alpha_dict = {'sender': [], 'router': [], 'receiver1': [], 'receiver2': []}
-    #hosts = [receiver2, receiver1, router, sender]
-    #yhat_dict = {'receiver2': [], 'receiver1': [], 'router': [], 'sender': []}
-    #gamma_dict = {'receiver2': 0, 'receiver1': 0, 'router': 0, 'sender': 0}
-    #alpha_dict = {'receiver2': [], 'receiver1': [], 'router': [], 'sender': []}
+
+    # reporting purposes
+    convergence = False
+    conv_tick = 0
 
 ############################### Run Simulation #################################
 
@@ -96,20 +97,67 @@ if(args.num_recvrs == 2):
 
             for host in hosts:
                 yhat, gamma, alpha = est_bernoulli_prob(host, yhat_dict, gamma_dict, alpha_dict, tick)
+                #print(host.name + " alpha: " + str(alpha))
                 
                 yhat_dict[host.name].append(yhat)
                 gamma_dict[host.name] = gamma
                 alpha_dict[host.name].append(alpha)
+
+                if(host.name in('receiver1', 'receiver2')):
+                    alpha_dict[host.name][tick] -= alpha_dict['router'][tick]
+
+############################### SDN calculations ###############################
         
         if(args.mode == "sdn"):
-            pass
+            # just count the success queues and do elementary calculations with
+            # data collected by the routers
+
+            # placeholder alpha value for router
+            router_alpha = 0.0
+
+            for host in hosts:
+                yhat = host.success_queue[tick]
+                yhat_dict[host.name].append(yhat)
+                gamma = sum(yhat_dict[host.name]) / len(yhat_dict[host.name])
+                #print(str(host.name) + " gamma: " + str(gamma))
+
+                # Alpha calculations
+                pre_alpha = 1 - gamma
+                print(str(host.name) + " pre-alpha: " + str(pre_alpha))
+                
+                # if non-leaf, give pre-alpha to placeholder (sender will be counted over)
+                if (host.downstream_nodes):
+                    router_alpha = pre_alpha
+                    alpha = pre_alpha
+
+                # if leaf, subtract placeholder to get individual link alpha
+                if not host.downstream_nodes:
+                    alpha = pre_alpha - router_alpha
+                
+                # Append for reporting
+                print(str(host.name) + " alpha: " + str(alpha))
+                gamma_dict[host.name] = gamma
+                alpha_dict[host.name].append(alpha)
+
+                # convergence check
+                #if(convergence == False):
+                #    conv_tick = tick
+                #    for i in range(0, 2):
+                #        if bernoullis[i] - alpha <= .1:
+                #            convergence = True
+                            
+            
+################################## Reporting ###################################
+
 
     # write this to CSV? do something to analyze data
     for host in hosts:
 
         print(host.name + " Yhat:  " + str(yhat_dict[host.name]))
-        print(host.name + " gamma: " + str(gamma_dict[host.name]))
+        print(host.name + " gamma: %.4f" % gamma_dict[host.name])
+        formatted_alpha = ['%.4f' % elem for elem in alpha_dict[host.name]]
         #print(host.name + " alpha: " + str(alpha_dict[host.name]))
+        print(host.name + " alpha: " + str(formatted_alpha))
 
     for host in hosts:
 
@@ -118,10 +166,11 @@ if(args.num_recvrs == 2):
                 outfile.write(str(item))
                 outfile.write('\n')
 
+    #print("Convergence achieved at tick: " + str(conv_tick))
 
-
-
+################################################################################
 ############################## 4 Receiver Setup ################################        
+################################################################################
 
 if(args.num_recvrs == 4):      # After debugging 2, fill this out
     pass

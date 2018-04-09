@@ -4,6 +4,9 @@ import csv
 import os
 import glob
 
+import matplotlib.pyplot as plt
+import numpy as np
+
 from network import *
 from host import *
 from algorithms import *
@@ -227,6 +230,49 @@ def run_simulation(ticks, link_array, host_array, yhat_dict, gamma_dict, alpha_d
 
 
 ################################################################################
+############################ Reporting Functions ###############################
+################################################################################
+
+def enum_tree_structure():
+    """Uses graphviz program to create a .gv file (must be compiled separately)
+    to illustrate the structure of the tree. Mostly created to help keep track 
+    of large trees."""
+    pass
+
+
+def convergence_report():
+    """Reports the tick on which each estimation algorithm can be said to 
+    converge to within 1% of the true value"""
+    pass
+
+def graph_convergence_path(host_array, alpha_dict, ticks):
+
+    # Graph 4 hosts per graph
+    num_hosts = len(host_array)
+    iterations = int(num_hosts / 4)
+
+    x_axis_vals = np.arange(ticks)
+
+    for i in range(0, iterations):
+
+        plt.plot(x_axis_vals, alpha_dict[host_array[(4*i)].name])
+        plt.plot(x_axis_vals, alpha_dict[host_array[(4*i)+1].name])
+        plt.plot(x_axis_vals, alpha_dict[host_array[(4*i)+2].name])
+        plt.plot(x_axis_vals, alpha_dict[host_array[(4*i)+3].name])
+        
+        # Create labels
+        plt.ylabel("Estimated loss value (%)")
+        plt.ylim(0.0, 0.5)
+        plt.xlabel("Sent packets")
+        plt.title("Algorithm Convergence Comparison")
+        plt.legend([host_array[(4*i)].name, host_array[(4*i)+1].name, host_array[(4*i)+2].name, host_array[(4*i)+3].name], loc='upper left')
+
+        graphpath = 'results/graph' + str(i) + '.png'
+        plt.savefig(graphpath)
+        plt.clf()
+
+
+################################################################################
 ################################ Setup and Run #################################
 ################################################################################
 
@@ -257,6 +303,9 @@ run_simulation(args.ticks, link_heap, host_heap, yhat_dict, gamma_dict, alpha_di
 files = glob.glob('results/*')
 for f in files:
     os.remove(f)
+
+# Graph results of convergence
+graph_convergence_path(host_heap, alpha_dict, args.ticks)
 
 # IMPORTANT: THIS WILL NEED TO BE HEAVILY EDITED
 

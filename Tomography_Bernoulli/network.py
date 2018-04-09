@@ -5,6 +5,7 @@ class Link:
     def __init__(self, bernoulli_alpha):
         self.link_queue = []
         self.bernoulli_alpha = bernoulli_alpha
+        #self.name = name
 
     # Not sure if enforcing queue limit is needed here
     def recv(self, pkt):
@@ -31,7 +32,7 @@ class Link:
 
     def isdropped(self):
         rand_number = random.uniform(0,1)
-        #print("Rand number: " + str(rand_number) + " bernoulli: " + str(self.bernoulli_alpha))
+
         if rand_number < self.bernoulli_alpha:
             return True
         else:

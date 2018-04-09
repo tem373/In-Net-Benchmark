@@ -1,21 +1,11 @@
 
-""" VARIABLES
-    
-    k       = node
-    j       = node descended from node k
-    A       = 
-    Yhat_k  = record of successes/failures (1s and 0s). Actual success queue in leaf
-              nodes, estimated from children otherwise
-"""
 
 def est_bernoulli_prob(k, yhat_queue, gamma_queue, alpha_queue, tick):
     """ Main function for estimating the bernoulli packet drop probability
     in each link. Takes as input link k and calculates the alpha"""
 
     yhat, gamma = find_gamma(k, yhat_queue, gamma_queue, tick)
-    alpha = infer(k, 1, alpha_queue, gamma_queue)     # 1 implies certainty of root node succeeding (sender)
-
-    #print("Yhat: " + str(yhat) + " gamma: " + str(gamma) + " alpha: " + str(alpha))
+    alpha = infer(k, 1, alpha_queue, gamma_queue)     #1 implies certainty of root node succeeding
 
     return yhat, gamma, alpha
 

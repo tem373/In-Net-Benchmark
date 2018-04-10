@@ -3,6 +3,7 @@ import argparse
 import csv
 import os
 import glob
+import time
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -129,7 +130,11 @@ def tomography_reporting(tick, host_array, yhat_dict, gamma_dict, alpha_dict):
     """Encapsulation of the tomography reporting, to be run inside 
     run_simulation()"""
 
-    print("Tick: " + str(tick))
+    print("Probe: " + str(tick))
+
+    #correcting_dict = {}
+    #for host in host_array:
+    #    correcting_dict[host.name] = 0.0    
 
     for host in host_array:
         yhat, gamma, alpha = est_bernoulli_prob(host, yhat_dict, gamma_dict, alpha_dict, tick)
@@ -139,13 +144,30 @@ def tomography_reporting(tick, host_array, yhat_dict, gamma_dict, alpha_dict):
         alpha_dict[host.name].append(alpha)
 
     # Need to figure out a way to subtract upstream links
+    for i in range(0, int(len(host_array)/2)):
+        # Sender
+        if i == 0:
+            alpha_dict[host_array[i+1].name][tick] -= alpha_dict[host_array[i].name][tick]
 
+        # Routers
+        else:
+            alpha_dict[host_array[(2*i)].name][tick] -= alpha_dict[host_array[i].name][tick]
+            alpha_dict[host_array[(2*i)+1].name][tick] -= alpha_dict[host_array[i].name][tick]
+    #    if (host.downstream_nodes):
+    #        for node in host.downstream_nodes:
+    #            correcting_dict[node.name] = alpha
+
+    #    alpha = alpha - correcting_dict[host.name]
+    #    alpha_dict[host.name].append(alpha)
 
 def sdn_reporting(tick, host_array, yhat_dict, gamma_dict, alpha_dict):
     """Encapsulation of the SDN reporting, to be run inside run_simulation()"""
 
-    print("Tick: " + str(tick))
-    router_alpha = 0.0
+    print("Probe: " + str(tick))
+    #router_alpha = 0.0
+    correcting_dict = {}
+    for host in host_array:
+        correcting_dict[host.name] = 0.0
 
     for host in host_array:
         yhat = host.success_queue[tick]
@@ -154,19 +176,22 @@ def sdn_reporting(tick, host_array, yhat_dict, gamma_dict, alpha_dict):
         
         # Alpha Calculations
         pre_alpha = 1 - gamma
-        print(str(host.name) + " pre-alpha: " + str(pre_alpha))
 
         # if non-leaf, give pre-alpha to placeholder (sender will be counted over)
         if (host.downstream_nodes):
-            router_alpha = pre_alpha
-            alpha = pre_alpha
+            #router_alpha = pre_alpha
+            #alpha = pre_alpha
+            for node in host.downstream_nodes:
+                correcting_dict[node.name] = pre_alpha
 
         # if leaf, subtract placeholder to get individual link alpha
-        if not host.downstream_nodes:
-            alpha = pre_alpha - router_alpha
+        #if not host.downstream_nodes:
+            #alpha = pre_alpha - router_alpha
+        #print(str(host.name) + "  " + str(router_alpha))
+        alpha = pre_alpha - correcting_dict[host.name]
                 
         # Append for reporting
-        print(str(host.name) + " alpha: " + str(alpha))
+        #print(str(host.name) + " alpha: " + str(alpha))
         gamma_dict[host.name] = gamma
         alpha_dict[host.name].append(alpha)
 
@@ -182,6 +207,8 @@ def run_simulation(ticks, link_array, host_array, yhat_dict, gamma_dict, alpha_d
             >   >    >   >     >    >    >
     L = [i, sr, r12, r13, rv1, rv2, rv3, rv4]
     """
+
+    start_time = time.time()
 
     num_recv = int(len(host_array) / 2)
     num_other = num_recv
@@ -228,22 +255,61 @@ def run_simulation(ticks, link_array, host_array, yhat_dict, gamma_dict, alpha_d
         if(args.mode == 'sdn'):
             sdn_reporting(tick, host_array, yhat_dict, gamma_dict, alpha_dict)
 
+    print("Simulation ran in %s milliseconds" % ((time.time() - start_time) * 1000))
+
 
 ################################################################################
 ############################ Reporting Functions ###############################
 ################################################################################
 
-def enum_tree_structure():
+def enum_tree_structure(host_array, link_array):
     """Uses graphviz program to create a .gv file (must be compiled separately)
     to illustrate the structure of the tree. Mostly created to help keep track 
     of large trees."""
-    pass
+
+    filepath = "results/graph_structure.gv"
+    filestring = "digraph {\n"
+
+    string_fragment = ""
+
+    # Run through the tree and append to the filestring
+    for i in range(0, int(len(host_array)/2)):       
+        host = host_array[i]
+
+        # Handle sender case 
+        if (host.name == 'sender'):
+            link = link_array[i+1]
+            next_host = host_array[i+1]
+            string_fragment = string_fragment + "\t{} -> {}[label=\"{}\",weight=\"{}\"];\n".format(host.name, next_host.name, link.bernoulli_alpha, link.bernoulli_alpha)
+
+        # Handle router cases
+        else:
+            link1 = link_array[(2*i)]
+            link2 = link_array[(2*i)+1]
+            nexthost1 = host_array[(2*i)]
+            nexthost2 = host_array[(2*i)+1]
+
+            frag1 = "\t{} -> {}[label=\"{}\",weight=\"{}\"];\n".format(host.name, nexthost1.name, link1.bernoulli_alpha, link1.bernoulli_alpha)
+            frag2 = "\t{} -> {}[label=\"{}\",weight=\"{}\"];\n".format(host.name, nexthost2.name, link2.bernoulli_alpha, link2.bernoulli_alpha)
+            string_fragment = string_fragment + frag1 + frag2
+
+    # Write the filestring into the file    
+    filestring = filestring + string_fragment
+    filestring = filestring + '}\n'
+
+    with open(filepath, 'w') as outfile:
+        outfile.write(filestring)
+
+    # To run the file
+    print("To generate the graph in .png format, run: ")
+    print("dot -Tpng -O graph_structure.gv")
 
 
 def convergence_report():
     """Reports the tick on which each estimation algorithm can be said to 
     converge to within 1% of the true value"""
     pass
+
 
 def graph_convergence_path(host_array, alpha_dict, ticks):
 
@@ -306,16 +372,17 @@ for f in files:
 
 # Graph results of convergence
 graph_convergence_path(host_heap, alpha_dict, args.ticks)
+#enum_tree_structure(host_heap, link_heap)
 
-# IMPORTANT: THIS WILL NEED TO BE HEAVILY EDITED
+# IMPORTANT: THIS MAY NEED TO BE HEAVILY EDITED
 
-for host in host_heap:
+#for host in host_heap:
 
-    print(host.name + " Yhat:  " + str(yhat_dict[host.name]))
-    print(host.name + " gamma: %.4f" % gamma_dict[host.name])
-    formatted_alpha = ['%.4f' % elem for elem in alpha_dict[host.name]]
+    #print(host.name + " Yhat:  " + str(yhat_dict[host.name]))
+    #print(host.name + " gamma: %.4f" % gamma_dict[host.name])
+    #formatted_alpha = ['%.4f' % elem for elem in alpha_dict[host.name]]
     #print(host.name + " alpha: " + str(alpha_dict[host.name]))
-    print(host.name + " alpha: " + str(formatted_alpha))
+    #print(host.name + " alpha: " + str(formatted_alpha))
 
 for host in host_heap:
 
@@ -324,7 +391,8 @@ for host in host_heap:
             outfile.write(str(item))
             outfile.write('\n')
 
-# IMPORTANT: THIS WILL NEED TO BE HEAVILY EDITED
+# Graph tree structure
+enum_tree_structure(host_heap, link_heap)
 
 
 

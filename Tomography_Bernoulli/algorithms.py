@@ -60,40 +60,45 @@ def infer(k, A, alpha_queue, gamma_queue):
     """ Calculates the actual alpha value"""
 
     gamma = gamma_queue[k.name]
+    #print(k.name)
+    #print("gamma: " + str(gamma))
 
+    #local_gamma = A - gamma
     pre_alpha = 1 - gamma
-    #print(k.name + " pre-alpha: " + str(pre_alpha))
-    #if(k.name == 'sender'):
-    #    alpha = 0
-    #    return alpha
 
-    #if not k.downstream_nodes:
-    #    A = pre_alpha        
-    #    alpha = pre_alpha
-    #    return alpha
+    #print("localgamma: " + str(local_gamma) + "\n")
 
-    if(k.downstream_nodes):
-        
-        #temp = 0.0
+    if (len(k.downstream_nodes) > 0):
 
-        #if(k.name == 'sender'):
-        #    alpha = 0
-        #    return alpha
-
-        A = pre_alpha
-        alpha = pre_alpha # - (1 - A)
+        #A = pre_alpha
+        A = gamma
+        #alpha = pre_alpha - (1 - A)
         #A = 1 - pre_alpha
         for j in k.downstream_nodes:
             infer(j, A, alpha_queue, gamma_queue)
             
-        return alpha
+            
 
-    elif not k.downstream_nodes:
+    #elif not k.downstream_nodes:
         #A = pre_alpha        
-        alpha = pre_alpha - (1 - A)
-        
+    alpha = pre_alpha
+    #alpha = 1 - (A + pre_alpha)    
+    #alpha = local_gamma
     
-        return alpha
+    return alpha
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

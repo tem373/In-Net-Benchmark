@@ -6,6 +6,14 @@ class Link:
         self.link_queue = []
         self.bernoulli_alpha = bernoulli_alpha
         #self.name = name
+        self.total_received_pkts = 0
+        self.total_dropped_pkts = 0
+
+    def loss_rate(self):
+        if (self.total_received_pkts == 0):
+          return -1
+        else:
+          return (self.total_dropped_pkts * 1.0) / self.total_received_pkts
 
     # Not sure if enforcing queue limit is needed here
     def recv(self, pkt):
@@ -13,10 +21,12 @@ class Link:
         if(pkt.was_dropped == True):
             self.link_queue.append(pkt)
         elif(pkt.was_dropped == False):
+            self.total_received_pkts += 1
             droptest = self.isdropped()
             if (droptest == False):
                 self.link_queue.append(pkt)
             elif (droptest == True):
+                self.total_dropped_pkts += 1
                 pkt.was_dropped = True
                 self.link_queue.append(pkt)
         #else:

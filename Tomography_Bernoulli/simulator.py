@@ -160,41 +160,13 @@ def tomography_reporting(tick, host_array, yhat_dict, gamma_dict, alpha_dict):
     #    alpha = alpha - correcting_dict[host.name]
     #    alpha_dict[host.name].append(alpha)
 
-def sdn_reporting(tick, host_array, yhat_dict, gamma_dict, alpha_dict):
+def sdn_reporting(tick, host_array, alpha_dict, link_array):
     """Encapsulation of the SDN reporting, to be run inside run_simulation()"""
 
-    print("Probe: " + str(tick))
-    #router_alpha = 0.0
-    correcting_dict = {}
-    for host in host_array:
-        correcting_dict[host.name] = 0.0
-
-    for host in host_array:
-        yhat = host.success_queue[tick]
-        yhat_dict[host.name].append(yhat)
-        gamma = sum(yhat_dict[host.name]) / len(yhat_dict[host.name])
-        
-        # Alpha Calculations
-        pre_alpha = 1 - gamma
-
-        # if non-leaf, give pre-alpha to placeholder (sender will be counted over)
-        if (host.downstream_nodes):
-            #router_alpha = pre_alpha
-            #alpha = pre_alpha
-            for node in host.downstream_nodes:
-                correcting_dict[node.name] = pre_alpha
-
-        # if leaf, subtract placeholder to get individual link alpha
-        #if not host.downstream_nodes:
-            #alpha = pre_alpha - router_alpha
-        #print(str(host.name) + "  " + str(router_alpha))
-        alpha = pre_alpha - correcting_dict[host.name]
-                
-        # Append for reporting
-        #print(str(host.name) + " alpha: " + str(alpha))
-        gamma_dict[host.name] = gamma
-        alpha_dict[host.name].append(alpha)
-
+    for i in range(0, len(host_array)):
+        host = host_array[i]
+        incoming_link = link_array[i] # convention
+        alpha_dict[host.name].append(incoming_link.loss_rate())
 
 def run_simulation(ticks, link_array, host_array, yhat_dict, gamma_dict, alpha_dict):
     """A note on how the simulation runs: the links and nodes are stored as
@@ -253,7 +225,7 @@ def run_simulation(ticks, link_array, host_array, yhat_dict, gamma_dict, alpha_d
 
         # Estimation - SDN
         if(args.mode == 'sdn'):
-            sdn_reporting(tick, host_array, yhat_dict, gamma_dict, alpha_dict)
+            sdn_reporting(tick, host_array, alpha_dict, link_array)
 
     print("Simulation ran in %s milliseconds" % ((time.time() - start_time) * 1000))
 

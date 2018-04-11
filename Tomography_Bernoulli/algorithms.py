@@ -1,17 +1,23 @@
 
 
-def est_bernoulli_prob(k, yhat_queue, gamma_queue, alpha_queue, tick):
+def est_bernoulli_prob(k, yhat_queue, gamma_queue, alpha_queue, tick, host_array):
     """ Main function for estimating the bernoulli packet drop probability
     in each link. Takes as input link k and calculates the alpha"""
 
     yhat, gamma = find_gamma(k, yhat_queue, gamma_queue, tick)
-    alpha = infer(k, 1, alpha_queue, gamma_queue)     #1 implies certainty of root node succeeding
+    alpha = infer(k, 1, gamma_queue, host_array)     #1 implies certainty of root node succeeding
 
     return yhat, gamma, alpha
 
 
 def find_gamma(k, yhat_queue, gamma_queue, tick):
     """ Computes gamma value and success values of non-receiver routers"""
+
+    # Sender is not a "real" link, so no need to spend time calculating
+    if(k.name == 'sender'):
+        yhat_k = 1
+        gamma_k = 1.0
+        return yhat_k, gamma_k
 
     n = tick+1
 
@@ -34,51 +40,48 @@ def find_gamma(k, yhat_queue, gamma_queue, tick):
                 if (counter > 0):
                     yhat_k = 1
                 else:                
-                    yhat_k = 0
-
+                    yhat_k = 0         
+    
     # calculate gamma        
     tempsum = 0
+    
     for i in range(1, n):
         tempsum += yhat_queue[k.name][i-1]  # yhat_queue only consists of n-1 elements
     tempsum += yhat_k
     gamma_k = float(tempsum) / n
 
-    if(k.name == 'sender'):
-        yhat_k = 1
-        gamma_k = 1.0
-
     return yhat_k, gamma_k
 
 
-def infer(k, A, alpha_queue, gamma_queue):
+def infer(k, A, gamma_queue, host_array):
     """ Calculates the actual alpha value"""
 
+    # Sender will always be 1, so save time on calculating it out
+    if(k.name == 'sender'):
+        return 0.0
+    
     gamma = gamma_queue[k.name]
-    #print(k.name)
-    #print("gamma: " + str(gamma))
 
-    #local_gamma = A - gamma
-    pre_alpha = 1 - gamma
+    index = host_array.index(k)
+    upstream_host = host_array[int(index/2)]
 
-    #print("localgamma: " + str(local_gamma) + "\n")
+    upstream_gamma = gamma_queue[upstream_host.name]
 
-    if (len(k.downstream_nodes) > 0):
+    alpha = upstream_gamma - gamma
 
-        #A = pre_alpha
-        A = gamma
-        #alpha = pre_alpha - (1 - A)
-        #A = 1 - pre_alpha
-        for j in k.downstream_nodes:
-            infer(j, A, alpha_queue, gamma_queue)
-            
-            
+    
 
-    #elif not k.downstream_nodes:
-        #A = pre_alpha        
-    alpha = pre_alpha
-    #alpha = 1 - (A + pre_alpha)    
-    #alpha = local_gamma
+    #pre_alpha = A - gamma
+    #if (len(k.downstream_nodes) > 0):
+
+    #    A = gamma
+
+    #    for j in k.downstream_nodes:
+    #        alpha = infer(j, A, gamma_queue, host_array)
+    #        return alpha
+
+    #alpha = pre_alpha
+
     
     return alpha
-
 

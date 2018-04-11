@@ -129,22 +129,11 @@ def tomography_reporting(tick, host_array, yhat_dict, gamma_dict, alpha_dict):
     print("Probe: " + str(tick))  
 
     for host in host_array:
-        yhat, gamma, alpha = est_bernoulli_prob(host, yhat_dict, gamma_dict, alpha_dict, tick)
+        yhat, gamma, alpha = est_bernoulli_prob(host, yhat_dict, gamma_dict, alpha_dict, tick, host_array)
 
         yhat_dict[host.name].append(yhat)
         gamma_dict[host.name] = gamma
         alpha_dict[host.name].append(alpha)
-
-    # Need to figure out a way to subtract upstream links
-    for i in range(0, int(len(host_array)/2)):
-        # Sender
-        if i == 0:
-            alpha_dict[host_array[i+1].name][tick] -= alpha_dict[host_array[i].name][tick]
-
-        # Routers
-        else:
-            alpha_dict[host_array[(2*i)].name][tick] -= alpha_dict[host_array[i].name][tick]
-            alpha_dict[host_array[(2*i)+1].name][tick] -= alpha_dict[host_array[i].name][tick]
 
 
 def sdn_reporting(tick, host_array, link_array, alpha_dict):
@@ -329,11 +318,10 @@ for f in files:
 graph_convergence_path(host_heap, alpha_dict, args.ticks)
 
 #for host in host_heap:
-    #print(host.name + " Yhat:  " + str(yhat_dict[host.name]))
-    #print(host.name + " gamma: %.4f" % gamma_dict[host.name])
-    #formatted_alpha = ['%.4f' % elem for elem in alpha_dict[host.name]]
-    #print(host.name + " alpha: " + str(alpha_dict[host.name]))
-    #print(host.name + " alpha: " + str(formatted_alpha))
+#    print(host.name + " Yhat:  " + str(yhat_dict[host.name]))
+#    print(host.name + " gamma: %.4f" % gamma_dict[host.name])
+#    formatted_alpha = ['%.4f' % elem for elem in alpha_dict[host.name]]
+#    print(host.name + " alpha: " + str(formatted_alpha))
 
 for host in host_heap:
     with open('results/' + host.name + '.csv', 'w') as outfile:
@@ -343,5 +331,3 @@ for host in host_heap:
 
 # Graph tree structure
 enum_tree_structure(host_heap, link_heap)
-
-

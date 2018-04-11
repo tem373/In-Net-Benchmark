@@ -22,23 +22,18 @@ def find_gamma(k, yhat_queue, gamma_queue, tick):
         for i in range(0, n):        
             yhat_k = k.success_queue[i]
 
-    # for loop of all the downstream links - maybe pass array of links?
-    else:
-        #print("Router or sender")    
+    else:   
         for j in k.downstream_nodes:
             find_gamma(j, yhat_queue, gamma_queue, tick)
 
             for i in range(0, n):
-
                 counter = 0
                 for node in k.downstream_nodes:
                     if (node.success_queue[i] == 1):
                         counter = counter + 1
                 if (counter > 0):
-                    
                     yhat_k = 1
-                else:
-                    
+                else:                
                     yhat_k = 0
 
     # calculate gamma        
@@ -53,7 +48,6 @@ def find_gamma(k, yhat_queue, gamma_queue, tick):
         gamma_k = 1.0
 
     return yhat_k, gamma_k
-
 
 
 def infer(k, A, alpha_queue, gamma_queue):
@@ -86,57 +80,5 @@ def infer(k, A, alpha_queue, gamma_queue):
     #alpha = local_gamma
     
     return alpha
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# GARBAGE CODE
-
-    # "Solvefor" method simple implementation
-    #k_gamma = (1 - gamma_queue[k.name]) / A
-
-    #print("gamma queue: " + str(gamma_queue))
-    #print("k_gamma: " + str(k_gamma))
-
-    #mult_result = 1
-    
-    #if(k.downstream_nodes):
-    #    for j in k.downstream_nodes:
-    #        j_gamma = gamma_queue[j.name]
-    #        mult_result = mult_result * ((1 - j_gamma) / A)
-
-    #A_k = k_gamma / mult_result
-
-    #alpha_k = float(A_k) / A
-
-    #print("Alpha K: " + str(alpha_k))
-
-    #return alpha_k
-
-    #for j in k.downstream_nodes:
-    #    infer(j, A_k, alpha_queue, gamma_queue)
-
-    #return alpha_k
-
-
-
-
-
 
 

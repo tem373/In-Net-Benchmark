@@ -15,13 +15,13 @@ class Link:
         else:
             return (self.total_dropped_pkts * 1.0) / self.total_received_pkts    
 
-
     def recv(self, pkt):
         
         if(pkt.was_dropped == True):
             self.link_queue.append(pkt)
         elif(pkt.was_dropped == False):
             self.total_received_pkts +=1
+
             droptest = self.isdropped()
             if (droptest == False):
                 self.link_queue.append(pkt)

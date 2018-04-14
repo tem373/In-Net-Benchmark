@@ -41,7 +41,13 @@ class Tree:
       self.parent = None
 
   def __str__(self):
-    return "Root = (" + str(self.id) + "), left=(" + str(self.left) + "), right=(" + str(self.right) + "), loss = (" + str(self.incoming_loss_prob) + ")"
+    assert(self.id != -1)
+    assert(self.incoming_loss_prob != 0)
+    assert(self.incoming_loss_prob != 1)
+    return "Root = (" + str(self.id) + \
+           "), left=(" + str(self.left) + \
+           "), right=(" + str(self.right) + \
+           "), loss = (" + str(self.incoming_loss_prob) + ")"
 
 tree = Tree(3, 0.1);
 print(tree)

@@ -1,4 +1,5 @@
 import random
+import numpy
 
 # generate new IDs for nodes
 def new_id():
@@ -48,12 +49,19 @@ class Tree:
       self.incoming_loss_prob = loss_prob
       self.parent = None
 
-  # count number of receivers in the tree rooted at self
-  def num_receivers(self):
+  # get a list of receivers under this tree
+  def receivers(self):
     if (self.left == None and self.right == None):
-      return 1
+      return [self]
     else:
-      return self.left.num_receivers() + self.right.num_receivers()
+      return self.left.receivers() + self.right.receivers()
+
+  # get a list of all nodes under this tree
+  def nodes(self):
+    if (self.left == None and self.right == None):
+      return [self]
+    else:
+      return [self] + self.left.nodes() + self.right.nodes()
 
   def __str__(self):
     assert(self.id != -1)
@@ -87,8 +95,56 @@ class Tree:
         return self.left.send_probe() + self.right.send_probe()
       # otherwise save some work and record an outcome of 0 at all receivers below this node
       else:
-        return [0] * self.num_receivers()
+        return [0] * len(self.receivers())
 
+# max likelihood estimator from https://ieeexplore.ieee.org/document/796384/
+# "Multicast-based inference of network-internal loss characteristics"
+class TomographyMle(object):
+  @staticmethod
+  def run_estimator(tree, probe_data):
+    # create the Y, gamma, and A for each node
+    # we use capital Y and A for consistency with equation 24 of the paper
+    all_nodes = tree.nodes()
+    for node in all_nodes:
+      node.Y = numpy.array([0] * len(probe_data))
+      node.gamma = 0.0
+      node.A = 0.0
+
+    # initialize the receiver Ys alone to probe_data
+    for node in tree.receivers():
+      node.Y = probe_data[Y.id]
+
+    TomographyMle.find_gamma(tree)
+    TomographyMle.infer(tree, 1)
+
+  @staticmethod
+  def find_gamma(tree, num_probes):
+    if (tree.left == None and tree.right == None):
+      tree.gamma = (numpy.sum(tree.Y) * 1.0)/num_probes
+      return tree.Y
+    else: 
+      # process left and right branches of tree
+      Y_left  = TomographyMle.find_gamma(tree.left)
+      Y_right = TomographyMle.find_gamma(tree.right)
+
+      # Or them together
+      tree.Y = numpy.logical_or(Y_left, Y_right)
+
+      # Divide by num_probes to get gamma
+      tree.gamma = (numpy.sum(tree.Y) * 1.0)/num_probes
+      return tree.Y
+
+  @staticmethod
+  def infer(tree, total_A):
+    # For a binary tree, solvefor in Figure 7 has a closed form solution
+    tree.A = (tree.left.gamma * tree.right.gamma * 1.0) / (tree.left.gamma + tree.right.gamma - tree.gamma)
+    assert(tree.A > 0)
+    assert(tree.A < 1)
+    tree.alpha = tree.A * 1.0 / total_A
+    if (tree.left != None and tree.right != None):
+      TomographyMle.infer(tree.left, tree.A)
+      TomographyMle.infer(tree.right, tree.A)
+ 
 random.seed(1)
 tree = Tree(3, 0.1);
 print(tree)

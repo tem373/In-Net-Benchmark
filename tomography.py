@@ -75,7 +75,7 @@ else:
 max_tomography_errors = []
 max_true_errors = []
 
-for i in range(1, num_trials):
+for i in range(1, num_trials + 1):
   random.seed(i)
   tree = Tree(depth, loss_probability)
   probe = dict() # To store results of probes

@@ -1,5 +1,6 @@
 import random
 import numpy
+import sys
 
 # generate new IDs for nodes
 def new_id():
@@ -25,6 +26,8 @@ class Tree:
   # with all probabilities assigned to loss_prob
   def __init__(self, depth, loss_prob):
     assert(depth >= 1)
+    assert(loss_prob > 0)
+    assert(loss_prob < 1)
 
     # Construct leaf nodes (base case)
     if (depth == 1):
@@ -147,7 +150,10 @@ class TomographyMle(object):
     if (tree.left == None and tree.right == None):
       tree.A = tree.gamma # Treat this as though the product is 0
     else:
-      tree.A = (tree.left.gamma * tree.right.gamma * 1.0) / (tree.left.gamma + tree.right.gamma - tree.gamma)
+      if (tree.left.gamma + tree.right.gamma - tree.gamma == 0):
+        tree.A = -1
+      else:
+        tree.A = (tree.left.gamma * tree.right.gamma * 1.0) / (tree.left.gamma + tree.right.gamma - tree.gamma)
     # assert(tree.A > 0) # This may fail for the first several probes
     # assert(tree.A < 1) # This may fail for the first several probes
     tree.alpha = tree.A * 1.0 / total_A
@@ -156,17 +162,18 @@ class TomographyMle(object):
       TomographyMle.update_mle(tree.right, tree.A)
  
 random.seed(1)
-tree = Tree(2, 0.1);
+tree = Tree(int(sys.argv[1]), float(sys.argv[2]));
 print(tree)
 probe = dict() # To store results of probes
 for receiver in tree.receivers():
   probe[receiver.id] = 0
 TomographyMle.create_estimator(tree)
-for i in range(0, 10000):
+for i in range(0, int(sys.argv[3])):
   outcome = tree.send_probe()
   for rx_tuple in outcome:
     probe[rx_tuple[0]] = 1 if rx_tuple[1] else 0
   TomographyMle.update_estimator(tree, probe)
-  print("After ", i + 1, " probes")
-  for node in tree.nodes():
-    print(node.alpha)
+for node in tree.nodes():
+  if node != tree:
+    print(1 - node.alpha, " error = ", \
+          round(100.0 * abs(1 - node.alpha - float(sys.argv[2])) / float(sys.argv[2]), 5), "%")

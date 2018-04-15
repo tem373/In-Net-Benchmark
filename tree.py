@@ -104,20 +104,20 @@ class Tree:
 # "Multicast-based inference of network-internal loss characteristics"
 class TomographyMle(object):
   @staticmethod
-  def run_estimator(tree, probe_data):
+  def run_estimator(tree, probe_data, num_probes):
     # create the Y, gamma, and A for each node
     # we use capital Y and A for consistency with equation 24 of the paper
     all_nodes = tree.nodes()
     for node in all_nodes:
-      node.Y = numpy.array([0] * len(probe_data))
+      node.Y = numpy.array([0] * num_probes)
       node.gamma = 0.0
       node.A = 0.0
 
     # initialize the receiver Ys alone to probe_data
-    for node in tree.receivers():
-      node.Y = probe_data[Y.id]
+    for receiver in tree.receivers():
+      receiver.Y = probe_data[receiver.id]
 
-    TomographyMle.find_gamma(tree)
+    TomographyMle.find_gamma(tree, num_probes)
     TomographyMle.infer(tree, 1)
 
   @staticmethod
@@ -127,8 +127,8 @@ class TomographyMle(object):
       return tree.Y
     else: 
       # process left and right branches of tree
-      Y_left  = TomographyMle.find_gamma(tree.left)
-      Y_right = TomographyMle.find_gamma(tree.right)
+      Y_left  = TomographyMle.find_gamma(tree.left, num_probes)
+      Y_right = TomographyMle.find_gamma(tree.right, num_probes)
 
       # Or them together
       tree.Y = numpy.logical_or(Y_left, Y_right)
@@ -139,8 +139,12 @@ class TomographyMle(object):
 
   @staticmethod
   def infer(tree, total_A):
-    # For a binary tree, solvefor in Figure 7 has a closed form solution
-    tree.A = (tree.left.gamma * tree.right.gamma * 1.0) / (tree.left.gamma + tree.right.gamma - tree.gamma)
+    # For a binary tree, solvefor in Figure 7 has a closed form solution, which we have plugged in below
+    # In general, we need to solve it numerically.
+    if (tree.left == None and tree.right == None):
+      tree.A = tree.gamma # Treat this as though the product is 0
+    else:
+      tree.A = (tree.left.gamma * tree.right.gamma * 1.0) / (tree.left.gamma + tree.right.gamma - tree.gamma)
     assert(tree.A > 0)
     assert(tree.A < 1)
     tree.alpha = tree.A * 1.0 / total_A
@@ -151,8 +155,15 @@ class TomographyMle(object):
 random.seed(1)
 tree = Tree(3, 0.1);
 print(tree)
+probe_data = dict() # To store results of probes
+for receiver in tree.receivers():
+  probe_data[receiver.id] = []
 for i in range(0, 100000):
   outcome = tree.send_probe()
-  for delivery in outcome:
-    print(delivery, end=" ")
-  print()
+  for rx_tuple in outcome:
+    probe_data[rx_tuple[0]] += [1 if rx_tuple[1] else 0]
+
+mle_est = TomographyMle()
+TomographyMle.run_estimator(tree, probe_data, 100000)
+for node in tree.nodes():
+  print(node.alpha)

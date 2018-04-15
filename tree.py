@@ -80,7 +80,7 @@ class Tree:
 
     # Base case: leaf node: look at whether packet is dropped on incoming link
     if (self.left == None and self.right == None):
-      return [deliver_probe(self.incoming_loss_prob)]
+      return [(self.id, deliver_probe(self.incoming_loss_prob))]
     # Recursive case: intermediate nodes
     else:
       if (self.parent == None):
@@ -95,7 +95,10 @@ class Tree:
         return self.left.send_probe() + self.right.send_probe()
       # otherwise save some work and record an outcome of 0 at all receivers below this node
       else:
-        return [0] * len(self.receivers())
+        ret = []
+        for receiver in self.receivers():
+          ret += [(receiver.id, False)]
+        return ret
 
 # max likelihood estimator from https://ieeexplore.ieee.org/document/796384/
 # "Multicast-based inference of network-internal loss characteristics"

@@ -9,10 +9,6 @@ def new_id():
   new_id.counter += 1
   return new_id.counter
 
-# deliver probe?
-def deliver_probe(loss_prob):
-  return not (random.random() < loss_prob)
-
 class Tree:
   # default constructor
   def __init__(self):
@@ -21,6 +17,8 @@ class Tree:
     self.id = -1
     self.incoming_loss_prob = 0.0
     self.parent = None
+    self.true_loss = 0.0
+    self.num_packets_incoming = 0
 
   # construct tree of depth depth
   # with all probabilities assigned to loss_prob
@@ -36,6 +34,8 @@ class Tree:
       self.id = new_id()
       self.incoming_loss_prob = loss_prob
       self.parent = None # This will be fixed once the parent is constructed (see below)
+      self.true_loss = 0.0
+      self.num_packets_incoming = 0
     else:
       # construct left and right trees
       left_tree  = Tree(depth - 1, loss_prob)
@@ -51,6 +51,8 @@ class Tree:
       self.id    = new_id()
       self.incoming_loss_prob = loss_prob
       self.parent = None
+      self.true_loss = 0.0
+      self.num_packets_incoming = 0
 
   # get a list of receivers under this tree
   def receivers(self):
@@ -76,6 +78,14 @@ class Tree:
            "), right=(" + str(self.right) + \
            "), loss = (" + str(self.incoming_loss_prob) + ")"
 
+  # deliver probe?
+  def deliver_probe(self):
+    self.num_packets_incoming += 1
+    delivered = not (random.random() < self.incoming_loss_prob)
+    loss = 1 if (not delivered) else 0
+    self.true_loss = self.true_loss + (loss - self.true_loss)/self.num_packets_incoming
+    return delivered
+
   # send probe down the tree and record outcome at all leaf nodes (receivers)
   def send_probe(self):
     # For every node, look at whether packet is dropped on incoming link
@@ -83,7 +93,7 @@ class Tree:
 
     # Base case: leaf node: look at whether packet is dropped on incoming link
     if (self.left == None and self.right == None):
-      return [(self.id, deliver_probe(self.incoming_loss_prob))]
+      return [(self.id, self.deliver_probe())]
     # Recursive case: intermediate nodes
     else:
       if (self.parent == None):
@@ -91,7 +101,7 @@ class Tree:
         probe_delivered = True
       else:
         # Again, look at where packet is dropped on incoming link
-        probe_delivered = deliver_probe(self.incoming_loss_prob)
+        probe_delivered = self.deliver_probe()
 
       # recurse left and right if deliver_probe is true 
       if (probe_delivered):
@@ -170,8 +180,9 @@ else:
   num_probes = int(sys.argv[3])
   num_trials = int(sys.argv[4])
 
-# Max error at each run 
-max_errors = []
+# Max error at each run from tomography and true error
+max_tomography_errors = []
+max_true_errors = []
 
 for i in range(1, num_trials):
   random.seed(i)
@@ -186,13 +197,19 @@ for i in range(1, num_trials):
       probe[rx_tuple[0]] = 1 if rx_tuple[1] else 0
     TomographyMle.update_estimator(tree, probe)
 
-  # print out average max error at the end
-  node_errors = []
+  # print out average max error at the end (for both tomography and true error)
+  node_tomography_errors = []
   for node in tree.nodes():
     if node != tree:
-      node_errors += [round(100.0 * abs(1 - node.alpha - float(loss_probability)) / float(loss_probability), 5)]
+      node_tomography_errors += [round(100.0 * abs(1 - node.alpha - float(loss_probability)) / float(loss_probability), 5)]
+  max_tomography_errors += [max(node_tomography_errors)]
 
-  max_errors += [max(node_errors)]
+  node_true_errors = []
+  for node in tree.nodes():
+    if node != tree:
+      node_true_errors += [round(100.0 * abs(node.true_loss - float(loss_probability)) / float(loss_probability), 5)]
+  max_true_errors += [max(node_true_errors)]
 
 print("Depth = ", depth, " loss_probability = ", loss_probability, \
-      " avg. max error = ", sum(max_errors)/num_trials, "%")
+      " avg. max tomography error = ", round(sum(max_tomography_errors)/num_trials, 5), "%", \
+      " avg. max true error = ", round(sum(max_true_errors)/num_trials, 5), "%")

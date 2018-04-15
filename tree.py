@@ -145,25 +145,25 @@ class TomographyMle(object):
       tree.A = tree.gamma # Treat this as though the product is 0
     else:
       tree.A = (tree.left.gamma * tree.right.gamma * 1.0) / (tree.left.gamma + tree.right.gamma - tree.gamma)
-    assert(tree.A > 0)
-    assert(tree.A < 1)
+    # assert(tree.A > 0) # This may fail for the first several probes
+    # assert(tree.A < 1) # This may fail for the first several probes
     tree.alpha = tree.A * 1.0 / total_A
     if (tree.left != None and tree.right != None):
       TomographyMle.infer(tree.left, tree.A)
       TomographyMle.infer(tree.right, tree.A)
  
 random.seed(1)
-tree = Tree(3, 0.1);
+tree = Tree(2, 0.1);
 print(tree)
 probe_data = dict() # To store results of probes
 for receiver in tree.receivers():
   probe_data[receiver.id] = []
-for i in range(0, 100000):
+for i in range(0, 10000):
   outcome = tree.send_probe()
   for rx_tuple in outcome:
     probe_data[rx_tuple[0]] += [1 if rx_tuple[1] else 0]
-
-mle_est = TomographyMle()
-TomographyMle.run_estimator(tree, probe_data, 100000)
-for node in tree.nodes():
-  print(node.alpha)
+  mle_est = TomographyMle()
+  TomographyMle.run_estimator(tree, probe_data, i + 1)
+  print("After ", i + 1, " probes")
+  for node in tree.nodes():
+    print(node.alpha)

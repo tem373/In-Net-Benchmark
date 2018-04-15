@@ -28,6 +28,7 @@ class TomographyMle(object):
 
   @staticmethod
   def update_gamma(tree):
+    # Leaf node, update gamma incrementally using latest Y
     if (tree.left == None and tree.right == None):
       assert(len(tree.Y) > 0)
       tree.gamma = tree.gamma + (tree.Y[-1] - tree.gamma)/len(tree.Y)
@@ -37,23 +38,23 @@ class TomographyMle(object):
       Y_left  = TomographyMle.update_gamma(tree.left)
       Y_right = TomographyMle.update_gamma(tree.right)
 
-      # Or the last entry together
+      # logic or the last entry of left and right together
       tree.Y += [Y_left[-1] or Y_right[-1]]
 
-      # Divide by num_probes to get gamma
+      # Incrementally update gamma again using the latest Y
       tree.gamma = tree.gamma + (tree.Y[-1] - tree.gamma)/len(tree.Y)
       return tree.Y
 
   @staticmethod
   def update_mle(tree, total_A):
-    # For a binary tree, solvefor in Figure 7 has a closed form solution, which we have plugged in below
+    # For a binary tree, solvefor in Figure 7 has a closed form solution, which is plugged in below (ab/(a+b-c))
     # In general, we need to solve it numerically.
     if (tree.left == None and tree.right == None):
-      tree.A = tree.gamma # Treat this as though the product is 0
+      tree.A = tree.gamma # Treat this as though the product is 0 per the paper
     else:
       if (tree.left.gamma + tree.right.gamma - tree.gamma == 0):
-        tree.A = -1
-      else:
+        tree.A = -1       # Need to handle divide by zero. Occurs in the beginning when there isn't enough data
+      else:               # closed form solution for binary trees
         tree.A = (tree.left.gamma * tree.right.gamma * 1.0) / (tree.left.gamma + tree.right.gamma - tree.gamma)
     # assert(tree.A > 0) # This may fail for the first several probes
     # assert(tree.A < 1) # This may fail for the first several probes
@@ -78,7 +79,7 @@ max_true_errors = []
 for i in range(1, num_trials + 1):
   random.seed(i)
   tree = Tree(depth, loss_probability)
-  probe = dict() # To store results of probes
+  probe = dict() # To store results of probes keyed by receiver ID
   for receiver in tree.receivers():
     probe[receiver.id] = 0
   TomographyMle.create_estimator(tree)
@@ -88,7 +89,7 @@ for i in range(1, num_trials + 1):
       probe[rx_tuple[0]] = 1 if rx_tuple[1] else 0
     TomographyMle.update_estimator(tree, probe)
 
-  # print out average max error at the end (for both tomography and true error)
+  # Compute max errors for both tomography and true error
   node_tomography_errors = []
   for node in tree.nodes():
     if node != tree:
@@ -101,6 +102,7 @@ for i in range(1, num_trials + 1):
       node_true_errors += [round(100.0 * abs(node.true_loss - float(loss_probability)) / float(loss_probability), 5)]
   max_true_errors += [max(node_true_errors)]
 
+# print out average of max errors
 print("Depth = ", depth, " loss_probability = ", loss_probability, \
       " avg. max tomography error = ", round(mean(max_tomography_errors), 5), "%", \
       " avg. max true error = ", round(mean(max_true_errors), 5), "%")

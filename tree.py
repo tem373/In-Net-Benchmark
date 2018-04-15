@@ -76,7 +76,7 @@ class Tree:
            "), right=(" + str(self.right) + \
            "), loss = (" + str(self.incoming_loss_prob) + ")"
 
-  # deliver probe?
+  # deliver probe? Also use this to calculate true loss rate at incoming link to each node
   def deliver_probe(self):
     self.num_packets_incoming += 1
     delivered = not (random.random() < self.incoming_loss_prob)
@@ -101,10 +101,10 @@ class Tree:
         # Again, look at where packet is dropped on incoming link
         probe_delivered = self.deliver_probe()
 
-      # recurse left and right if deliver_probe is true 
+      # recurse left and right if probe was delivered 
       if (probe_delivered):
         return self.left.send_probe() + self.right.send_probe()
-      # otherwise save some work and record an outcome of 0 at all receivers below this node
+      # otherwise save some work and record an outcome of 0 at all receivers below self
       else:
         ret = []
         for receiver in self.receivers():

@@ -160,20 +160,39 @@ class TomographyMle(object):
     if (tree.left != None and tree.right != None):
       TomographyMle.update_mle(tree.left,  tree.A)
       TomographyMle.update_mle(tree.right, tree.A)
- 
-random.seed(1)
-tree = Tree(int(sys.argv[1]), float(sys.argv[2]));
-print(tree)
-probe = dict() # To store results of probes
-for receiver in tree.receivers():
-  probe[receiver.id] = 0
-TomographyMle.create_estimator(tree)
-for i in range(0, int(sys.argv[3])):
-  outcome = tree.send_probe()
-  for rx_tuple in outcome:
-    probe[rx_tuple[0]] = 1 if rx_tuple[1] else 0
-  TomographyMle.update_estimator(tree, probe)
-for node in tree.nodes():
-  if node != tree:
-    print(1 - node.alpha, " error = ", \
-          round(100.0 * abs(1 - node.alpha - float(sys.argv[2])) / float(sys.argv[2]), 5), "%")
+
+if len(sys.argv) != 5:
+  print("Usage: ", sys.argv[0], " depth loss_probability num_probes num_trials ")
+  exit(1)
+else:
+  depth = int(sys.argv[1])
+  loss_probability = float(sys.argv[2])
+  num_probes = int(sys.argv[3])
+  num_trials = int(sys.argv[4])
+
+# Max error at each run 
+max_errors = []
+
+for i in range(1, num_trials):
+  random.seed(i)
+  tree = Tree(depth, loss_probability)
+  probe = dict() # To store results of probes
+  for receiver in tree.receivers():
+    probe[receiver.id] = 0
+  TomographyMle.create_estimator(tree)
+  for i in range(0, num_probes):
+    outcome = tree.send_probe()
+    for rx_tuple in outcome:
+      probe[rx_tuple[0]] = 1 if rx_tuple[1] else 0
+    TomographyMle.update_estimator(tree, probe)
+
+  # print out average max error at the end
+  node_errors = []
+  for node in tree.nodes():
+    if node != tree:
+      node_errors += [round(100.0 * abs(1 - node.alpha - float(loss_probability)) / float(loss_probability), 5)]
+
+  max_errors += [max(node_errors)]
+
+print("Depth = ", depth, " loss_probability = ", loss_probability, \
+      " avg. max error = ", sum(max_errors)/num_trials, "%")

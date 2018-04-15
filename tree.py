@@ -104,41 +104,44 @@ class Tree:
 # "Multicast-based inference of network-internal loss characteristics"
 class TomographyMle(object):
   @staticmethod
-  def run_estimator(tree, probe_data, num_probes):
+  def create_estimator(tree):
     # create the Y, gamma, and A for each node
     # we use capital Y and A for consistency with equation 24 of the paper
     all_nodes = tree.nodes()
     for node in all_nodes:
-      node.Y = numpy.array([0] * num_probes)
+      node.Y = []
       node.gamma = 0.0
       node.A = 0.0
 
-    # initialize the receiver Ys alone to probe_data
+  @staticmethod
+  def update_estimator(tree, probe):
+    # update the receiver Ys alone to probe
     for receiver in tree.receivers():
-      receiver.Y = probe_data[receiver.id]
+      receiver.Y += [probe[receiver.id]]
 
-    TomographyMle.find_gamma(tree, num_probes)
-    TomographyMle.infer(tree, 1)
+    TomographyMle.update_gamma(tree)
+    TomographyMle.update_mle(tree, 1)
 
   @staticmethod
-  def find_gamma(tree, num_probes):
+  def update_gamma(tree):
     if (tree.left == None and tree.right == None):
-      tree.gamma = (numpy.sum(tree.Y) * 1.0)/num_probes
+      assert(len(tree.Y) > 0)
+      tree.gamma = tree.gamma + (tree.Y[-1] - tree.gamma)/len(tree.Y)
       return tree.Y
     else: 
       # process left and right branches of tree
-      Y_left  = TomographyMle.find_gamma(tree.left, num_probes)
-      Y_right = TomographyMle.find_gamma(tree.right, num_probes)
+      Y_left  = TomographyMle.update_gamma(tree.left)
+      Y_right = TomographyMle.update_gamma(tree.right)
 
-      # Or them together
-      tree.Y = numpy.logical_or(Y_left, Y_right)
+      # Or the last entry together
+      tree.Y += [Y_left[-1] or Y_right[-1]]
 
       # Divide by num_probes to get gamma
-      tree.gamma = (numpy.sum(tree.Y) * 1.0)/num_probes
+      tree.gamma = tree.gamma + (tree.Y[-1] - tree.gamma)/len(tree.Y)
       return tree.Y
 
   @staticmethod
-  def infer(tree, total_A):
+  def update_mle(tree, total_A):
     # For a binary tree, solvefor in Figure 7 has a closed form solution, which we have plugged in below
     # In general, we need to solve it numerically.
     if (tree.left == None and tree.right == None):
@@ -149,21 +152,21 @@ class TomographyMle(object):
     # assert(tree.A < 1) # This may fail for the first several probes
     tree.alpha = tree.A * 1.0 / total_A
     if (tree.left != None and tree.right != None):
-      TomographyMle.infer(tree.left, tree.A)
-      TomographyMle.infer(tree.right, tree.A)
+      TomographyMle.update_mle(tree.left,  tree.A)
+      TomographyMle.update_mle(tree.right, tree.A)
  
 random.seed(1)
 tree = Tree(2, 0.1);
 print(tree)
-probe_data = dict() # To store results of probes
+probe = dict() # To store results of probes
 for receiver in tree.receivers():
-  probe_data[receiver.id] = []
+  probe[receiver.id] = 0
+TomographyMle.create_estimator(tree)
 for i in range(0, 10000):
   outcome = tree.send_probe()
   for rx_tuple in outcome:
-    probe_data[rx_tuple[0]] += [1 if rx_tuple[1] else 0]
-  mle_est = TomographyMle()
-  TomographyMle.run_estimator(tree, probe_data, i + 1)
+    probe[rx_tuple[0]] = 1 if rx_tuple[1] else 0
+  TomographyMle.update_estimator(tree, probe)
   print("After ", i + 1, " probes")
   for node in tree.nodes():
     print(node.alpha)

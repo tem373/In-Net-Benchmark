@@ -1,6 +1,7 @@
 import random
 import numpy
 import sys
+from statistics import mean
 
 # generate new IDs for nodes
 def new_id():
@@ -180,9 +181,9 @@ else:
   num_probes = int(sys.argv[3])
   num_trials = int(sys.argv[4])
 
-# Max error at each run from tomography and true error
-max_tomography_errors = []
-max_true_errors = []
+# Error at each run from tomography and true error
+tomography_errors = []
+true_errors = []
 
 for i in range(1, num_trials):
   random.seed(i)
@@ -202,14 +203,14 @@ for i in range(1, num_trials):
   for node in tree.nodes():
     if node != tree:
       node_tomography_errors += [round(100.0 * abs(1 - node.alpha - float(loss_probability)) / float(loss_probability), 5)]
-  max_tomography_errors += [max(node_tomography_errors)]
+  tomography_errors += [max(node_tomography_errors)]
 
   node_true_errors = []
   for node in tree.nodes():
     if node != tree:
       node_true_errors += [round(100.0 * abs(node.true_loss - float(loss_probability)) / float(loss_probability), 5)]
-  max_true_errors += [max(node_true_errors)]
+  true_errors += [max(node_true_errors)]
 
 print("Depth = ", depth, " loss_probability = ", loss_probability, \
-      " avg. max tomography error = ", round(sum(max_tomography_errors)/num_trials, 5), "%", \
-      " avg. max true error = ", round(sum(max_true_errors)/num_trials, 5), "%")
+      " avg. max tomography error = ", round(mean(tomography_errors), 5), "%", \
+      " avg. max true error = ", round(mean(true_errors), 5), "%")

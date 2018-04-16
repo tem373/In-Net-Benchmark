@@ -121,7 +121,7 @@ class Tree:
     else:
       probe_delivered = self.deliver_probe()
 
-    # Recursion logic
+    # Recursion logic: deliver left and right probes regardless of value of probe_delivered
     if (self.left != None and self.right != None):
       self.left.send_independent_probes()
       self.right.send_independent_probes()

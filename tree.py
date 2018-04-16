@@ -84,8 +84,8 @@ class Tree:
     self.true_loss = self.true_loss + (loss - self.true_loss)/self.num_packets_incoming
     return delivered
 
-  # send probe down the tree and record outcome at all leaf nodes (receivers)
-  def send_probe(self):
+  # send multicast probe down the tree and record outcome at all leaf nodes (receivers)
+  def send_multicast_probe(self):
     # For every node, look at whether packet is dropped on incoming link
     # And recursively on the trees rooted at that node
 
@@ -103,10 +103,25 @@ class Tree:
 
       # recurse left and right if probe was delivered 
       if (probe_delivered):
-        return self.left.send_probe() + self.right.send_probe()
+        return self.left.send_multicast_probe() + self.right.send_multicast_probe()
       # otherwise save some work and record an outcome of 0 at all receivers below self
       else:
         ret = []
         for receiver in self.receivers():
           ret += [(receiver.id, False)]
         return ret
+
+  # send independent probes down every node
+  # This is implemented recursively for convenience,
+  # but is equivalent to running an independent random process at each node.
+  def send_independent_probes(self):
+    # For the root node don't bother delivering, just recurse
+    if (self.parent == None):
+      probe_delivered = True
+    else:
+      probe_delivered = self.deliver_probe()
+
+    # Recursion logic
+    if (self.left != None and self.right != None):
+      self.left.send_independent_probes()
+      self.right.send_independent_probes()

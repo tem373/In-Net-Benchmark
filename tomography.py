@@ -77,32 +77,41 @@ max_tomography_errors = []
 max_true_errors = []
 
 for i in range(1, num_trials + 1):
+  # seed random number generator
   random.seed(i)
-  tree = Tree(depth, loss_probability)
+
+  # multicast tomography based approach
+  mcast_tree = Tree(depth, loss_probability)
   probe = dict() # To store results of probes keyed by receiver ID
-  for receiver in tree.receivers():
+  for receiver in mcast_tree.receivers():
     probe[receiver.id] = 0
-  TomographyMle.create_estimator(tree)
+  TomographyMle.create_estimator(mcast_tree)
   for i in range(0, num_probes):
-    outcome = tree.send_probe()
+    outcome = mcast_tree.send_multicast_probe()
     for rx_tuple in outcome:
       probe[rx_tuple[0]] = 1 if rx_tuple[1] else 0
-    TomographyMle.update_estimator(tree, probe)
+    TomographyMle.update_estimator(mcast_tree, probe)
 
-  # Compute max errors for both tomography and true error
+  # Compute max errors for tomography
   node_tomography_errors = []
-  for node in tree.nodes():
-    if node != tree:
+  for node in mcast_tree.nodes():
+    if node != mcast_tree:
       node_tomography_errors += [round(100.0 * abs(1 - node.alpha - float(loss_probability)) / float(loss_probability), 5)]
   max_tomography_errors += [max(node_tomography_errors)]
 
+  # in network approach
+  in_network_tree = Tree(depth, loss_probability)
+  for i in range(0, num_probes):
+    in_network_tree.send_independent_probes()
+
+  # Compute max errors for in network approach
   node_true_errors = []
-  for node in tree.nodes():
-    if node != tree:
+  for node in in_network_tree.nodes():
+    if node != in_network_tree:
       node_true_errors += [round(100.0 * abs(node.true_loss - float(loss_probability)) / float(loss_probability), 5)]
   max_true_errors += [max(node_true_errors)]
 
 # print out average of max errors
 print("Depth = ", depth, " loss_probability = ", loss_probability, \
       " avg. max tomography error = ", round(mean(max_tomography_errors), 5), "%", \
-      " avg. max true error = ", round(mean(max_true_errors), 5), "%")
+      " avg. max in-network error = ", round(mean(max_true_errors), 5), "%")

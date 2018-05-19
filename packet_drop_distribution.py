@@ -65,3 +65,4 @@ print(paretos[:500])
 print("Max: " + str(max(paretos)))
 print("Avg: " + str(paretos.mean()))
 
+

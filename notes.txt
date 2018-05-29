@@ -9,3 +9,5 @@ Some findings:
 4. To get the best accuracy from the in-network approach, we should send independent probes on each link of the tree, instead of sending one multicast probe through the whole tree.
 
 5. The gap between the in-network and tomography approaches goes up as the link loss probability goes up because the probability of a probe being lost simultaneously on two sibling links goes up. The reason simultaneous losses is important is because the tomography approach can't resolve ambiguity in these cases and blames the losses on the parent link.
+
+6. The errors are lower with Bernoulli losses relative to Pareto losses.

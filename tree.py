@@ -49,7 +49,9 @@ class Tree:
       self.loss_type = loss_type
       self.prob_escape_good = LOW_ESCAPE_PROBABILITY
       self.prob_escape_bad = get_prob_escape_bad(self.incoming_loss_prob)
-      self.link_state = "good" if (numpy.random.random() < 0.5) else "bad"
+
+      # steady-state probability of being in "bad" is the same as self.incoming_loss_prob
+      self.link_state = "bad" if (numpy.random.random() < self.incoming_loss_prob) else "good"
 
     else:
       # construct left and right trees
@@ -71,7 +73,9 @@ class Tree:
       self.loss_type = loss_type
       self.prob_escape_good = LOW_ESCAPE_PROBABILITY
       self.prob_escape_bad = get_prob_escape_bad(self.incoming_loss_prob)
-      self.link_state = "good" if (numpy.random.random() < 0.5) else "bad"
+
+      # steady-state probability of being in "bad" is the same as self.incoming_loss_prob
+      self.link_state = "bad" if (numpy.random.random() < self.incoming_loss_prob) else "good"
 
   # State transitions for Gilbert-Elliot loss model
   # Run this even if there aren't packets to maintain correctness of model.

@@ -23,3 +23,10 @@ cases and blames the losses on the parent link.
 in-network approach) when presented with bursty losses from the Gilbert-Elliot
 model. I don't understand this myself. I think it might be a function of how
 high the loss rate is.
+
+6. One additional complication with tomography is that it relies on in-network
+multicast. With end-host-only multicast, it isn't clear how you generalize
+tomography.  I suppose you could send multiple unicast packets, one for each
+multicast receiver, but then they might not all see the same link conditions.
+You could assume they see the same link conditions, but that could lead to some
+estimation errors.

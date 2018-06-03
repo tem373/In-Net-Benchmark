@@ -1,4 +1,5 @@
-import random
+#! /usr/bin/python3
+
 import numpy
 import sys
 from statistics import mean
@@ -63,14 +64,16 @@ class TomographyMle(object):
       TomographyMle.update_mle(tree.left,  tree.A)
       TomographyMle.update_mle(tree.right, tree.A)
 
-if len(sys.argv) != 5:
-  print("Usage: ", sys.argv[0], " depth loss_probability num_probes num_trials ")
+if len(sys.argv) != 6:
+  print("Usage: ", sys.argv[0], " depth loss_probability loss_type num_probes num_trials ")
   exit(1)
 else:
   depth = int(sys.argv[1])
   loss_probability = float(sys.argv[2])
-  num_probes = int(sys.argv[3])
-  num_trials = int(sys.argv[4])
+  loss_type =  sys.argv[3]
+  assert(loss_type in ["bernoulli", "gilbert_elliot"])
+  num_probes = int(sys.argv[4])
+  num_trials = int(sys.argv[5])
 
 # Error at each run from tomography and true error
 max_tomography_errors = []
@@ -78,16 +81,19 @@ max_true_errors = []
 
 for i in range(1, num_trials + 1):
   # seed random number generator
-  random.seed(i)
+  numpy.random.seed(i)
 
   # multicast tomography based approach
-  mcast_tree = Tree(depth, loss_probability)
+  mcast_tree = Tree(depth, loss_probability, loss_type)
   probe = dict() # To store results of probes keyed by receiver ID
   for receiver in mcast_tree.receivers():
     probe[receiver.id] = 0
   TomographyMle.create_estimator(mcast_tree)
   for i in range(0, num_probes):
-    outcome = mcast_tree.send_multicast_probe()
+    if loss_type == "gilbert_elliot":
+      for node in mcast_tree.nodes():
+        node.state_transition()
+    outcome = mcast_tree.send_multicast_probe(i) # Pass in probe number i as tick to send_multicast_probe
     for rx_tuple in outcome:
       probe[rx_tuple[0]] = 1 if rx_tuple[1] else 0
     TomographyMle.update_estimator(mcast_tree, probe)
@@ -100,9 +106,12 @@ for i in range(1, num_trials + 1):
   max_tomography_errors += [max(node_tomography_errors)]
 
   # in network approach
-  in_network_tree = Tree(depth, loss_probability)
+  in_network_tree = Tree(depth, loss_probability, loss_type)
   for i in range(0, num_probes):
-    in_network_tree.send_independent_probes()
+    if loss_type == "gilbert_elliot":
+      for node in in_network_tree.nodes():
+        node.state_transition()
+    in_network_tree.send_independent_probes(i)
 
   # Compute max errors for in network approach
   node_true_errors = []
@@ -112,6 +121,6 @@ for i in range(1, num_trials + 1):
   max_true_errors += [max(node_true_errors)]
 
 # print out average of max errors
-print("Depth = ", depth, " loss_probability = ", loss_probability, \
-      " avg. max tomography error = ", round(mean(max_tomography_errors), 5), "%", \
-      " avg. max in-network error = ", round(mean(max_true_errors), 5), "%")
+print("Depth =", depth, "loss_probability =", loss_probability, "loss_type =", loss_type, \
+      "\navg. max tomography error = ", round(mean(max_tomography_errors), 5), "%", \
+      "avg. max in-network error = ", round(mean(max_true_errors), 5), "%")

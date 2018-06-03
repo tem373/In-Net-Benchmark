@@ -15,6 +15,7 @@ def program_wrapper(program, t_stdout = subprocess.PIPE, t_stderr = subprocess.P
     sys.exit(sp.returncode)
   else :
     print(out.decode("utf-8"))
+    sys.stdout.flush()
     return (out, err)
 
 for loss in range(1, 10, 1):

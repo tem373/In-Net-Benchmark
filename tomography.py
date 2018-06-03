@@ -76,8 +76,8 @@ else:
   num_trials = int(sys.argv[5])
 
 # Error at each run from tomography and true error
-max_tomography_errors = []
-max_true_errors = []
+mean_tomography_errors = []
+mean_true_errors = []
 
 for i in range(1, num_trials + 1):
   # seed random number generator
@@ -103,7 +103,7 @@ for i in range(1, num_trials + 1):
   for node in mcast_tree.nodes():
     if node != mcast_tree:
       node_tomography_errors += [round(100.0 * abs(1 - node.alpha - float(loss_probability)) / float(loss_probability), 5)]
-  max_tomography_errors += [max(node_tomography_errors)]
+  mean_tomography_errors += [mean(node_tomography_errors)]
 
   # in network approach
   in_network_tree = Tree(depth, loss_probability, loss_type)
@@ -118,10 +118,10 @@ for i in range(1, num_trials + 1):
   for node in in_network_tree.nodes():
     if node != in_network_tree:
       node_true_errors += [round(100.0 * abs(node.true_loss - float(loss_probability)) / float(loss_probability), 5)]
-  max_true_errors += [max(node_true_errors)]
+  mean_true_errors += [mean(node_true_errors)]
 
 # print out average of max errors
 print("Depth =", depth, "loss_probability =", loss_probability, "loss_type =", loss_type, \
       "num_probes =", num_probes, "num_trials =", num_trials,
-      "\navg. max tomography error = ", round(mean(max_tomography_errors), 5), "%", \
-      "avg. max in-network error = ", round(mean(max_true_errors), 5), "%")
+      "\navg. tomography error = ", round(mean(mean_tomography_errors), 5), "%", \
+      "avg. in-network error = ", round(mean(mean_true_errors), 5), "%")

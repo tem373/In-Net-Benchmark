@@ -18,7 +18,12 @@ def program_wrapper(program, t_stdout = subprocess.PIPE, t_stderr = subprocess.P
     sys.stdout.flush()
     return (out, err)
 
-for loss in range(1, 10, 1):
+if (sys.argv[1] == "hi-loss"):
+  loss_rates = range(10, 40, 10)
+else:
+  loss_rates = range(1, 10, 1)
+
+for loss in loss_rates:
   for num_samples in [100, 1000, 10000, 100000]:
     for depth in [3, 4, 5]:
       cmd1 = ["./tomography.py", str(depth), str(loss/100.0), "bernoulli", str(num_samples), "100"]

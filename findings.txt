@@ -19,12 +19,7 @@ simultaneously on two sibling links goes up. The reason simultaneous losses is
 important is because the tomography approach can't resolve ambiguity in these
 cases and blames the losses on the parent link.
 
-5. The errors are better for the tomography approach (relative to the
-in-network approach) when presented with bursty losses from the Gilbert-Elliot
-model. I don't understand this myself. I think it might be a function of how
-high the loss rate is.
-
-6. One additional complication with tomography is that it relies on in-network
+5. One additional complication with tomography is that it relies on in-network
 multicast. With end-host-only multicast, it isn't clear how you generalize
 tomography.  I suppose you could send multiple unicast packets, one for each
 multicast receiver, but then they might not all see the same link conditions.

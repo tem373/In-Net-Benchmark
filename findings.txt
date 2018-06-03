@@ -1,0 +1,25 @@
+1. The gap between the in-network and tomography approaches is most when you
+have a small number of probes (but it can't be too small because then both will
+be erroneous). You typically use a small number of probes when the link
+conditions change quickly. So this says that the gap is most when link
+conditions change quickly.
+
+2. The gap between the two approaches is most when the tree depth is high. This
+is again represented by Figure 6 in the MINC paper.
+
+3. To get the best accuracy from the in-network approach, we should send
+independent probes on each link of the tree, instead of sending one multicast
+probe through the whole tree like the tomography approach does. Put
+differently, in the in-network approach, you instrument just those links that
+are likely to be problematic; you don't need to setup an entire multicast tree.
+
+4. The gap between the in-network and tomography approaches goes up as the link
+loss probability goes up because the probability of a probe being lost
+simultaneously on two sibling links goes up. The reason simultaneous losses is
+important is because the tomography approach can't resolve ambiguity in these
+cases and blames the losses on the parent link.
+
+5. The errors are better for the tomography approach (relative to the
+in-network approach) when presented with bursty losses from the Gilbert-Elliot
+model. I don't understand this myself. I think it might be a function of how
+high the loss rate is.

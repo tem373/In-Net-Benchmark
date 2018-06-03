@@ -19,9 +19,9 @@ def program_wrapper(program, t_stdout = subprocess.PIPE, t_stderr = subprocess.P
     return (out, err)
 
 if (sys.argv[1] == "hi-loss"):
-  loss_rates = range(10, 40, 10)
+  loss_rates = range(10, 50, 10)
 else:
-  loss_rates = range(1, 10, 1)
+  loss_rates = range(1, 11, 1)
 
 for loss in loss_rates:
   for num_samples in [100, 1000, 10000, 100000]:

@@ -53,7 +53,7 @@ class TomographyMle(object):
       tree.A = tree.gamma # Treat this as though the product is 0 per the paper
     else:
       if (tree.left.gamma + tree.right.gamma - tree.gamma == 0):
-        tree.A = -1       # Need to handle divide by zero. Occurs in the beginning when there isn't enough data
+        tree.A = -1       # Need to handle divide by zero
       else:               # closed form solution for binary trees
         tree.A = (tree.left.gamma * tree.right.gamma * 1.0) / (tree.left.gamma + tree.right.gamma - tree.gamma)
     # assert(tree.A > 0) # This may fail for the first several probes

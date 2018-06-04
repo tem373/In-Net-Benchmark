@@ -19,35 +19,34 @@ class TomographyMle(object):
       node.A = 0.0
 
   @staticmethod
-  def update_estimator(tree, probe):
+  def update_Y(tree, probe):
     # update the receiver Ys alone to probe
     for receiver in tree.receivers():
       receiver.Y += [probe[receiver.id]]
 
-    TomographyMle.update_gamma(tree)
-    TomographyMle.update_mle(tree, 1)
-
   @staticmethod
-  def update_gamma(tree):
+  def compute_gamma(tree):
     # Leaf node, update gamma incrementally using latest Y
     if (tree.left == None and tree.right == None):
       assert(len(tree.Y) > 0)
-      tree.gamma = tree.gamma + (tree.Y[-1] - tree.gamma)/len(tree.Y)
+      tree.gamma = sum(tree.Y)/len(tree.Y)
       return tree.Y
     else: 
       # process left and right branches of tree
-      Y_left  = TomographyMle.update_gamma(tree.left)
-      Y_right = TomographyMle.update_gamma(tree.right)
+      Y_left  = TomographyMle.compute_gamma(tree.left)
+      Y_right = TomographyMle.compute_gamma(tree.right)
 
-      # logic or the last entry of left and right together
-      tree.Y += [Y_left[-1] or Y_right[-1]]
+      # logic or the left and right together
+      assert(len(Y_left) == len(Y_right))
+      for i in range(0, len(Y_left)):
+        tree.Y += [Y_left[i] or Y_right[i]]
 
-      # Incrementally update gamma again using the latest Y
-      tree.gamma = tree.gamma + (tree.Y[-1] - tree.gamma)/len(tree.Y)
+      # compute gamma for resulting tree
+      tree.gamma = sum(tree.Y)/len(tree.Y)
       return tree.Y
 
   @staticmethod
-  def update_mle(tree, total_A):
+  def compute_mle(tree, total_A):
     # For a binary tree, solvefor in Figure 7 has a closed form solution, which is plugged in below (ab/(a+b-c))
     # In general, we need to solve it numerically.
     if (tree.left == None and tree.right == None):
@@ -61,8 +60,8 @@ class TomographyMle(object):
     # assert(tree.A < 1) # This may fail for the first several probes
     tree.alpha = tree.A * 1.0 / total_A
     if (tree.left != None and tree.right != None):
-      TomographyMle.update_mle(tree.left,  tree.A)
-      TomographyMle.update_mle(tree.right, tree.A)
+      TomographyMle.compute_mle(tree.left,  tree.A)
+      TomographyMle.compute_mle(tree.right, tree.A)
 
 if len(sys.argv) != 6:
   print("Usage: ", sys.argv[0], " depth loss_probability loss_type num_probes num_trials ")
@@ -96,7 +95,11 @@ for i in range(1, num_trials + 1):
     outcome = mcast_tree.send_multicast_probe(i) # Pass in probe number i as tick to send_multicast_probe
     for rx_tuple in outcome:
       probe[rx_tuple[0]] = 1 if rx_tuple[1] else 0
-    TomographyMle.update_estimator(mcast_tree, probe)
+    TomographyMle.update_Y(mcast_tree, probe)
+
+  # Now compute MLE
+  TomographyMle.compute_gamma(mcast_tree)
+  TomographyMle.compute_mle(mcast_tree, 1.0)
 
   # Compute max errors for tomography
   node_tomography_errors = []

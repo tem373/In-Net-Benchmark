@@ -65,17 +65,16 @@ class TomographyMle(object):
   # Check conditions i and iv from 5.1 of http://nickduffield.net/download/papers/minctoit.pdf
   def pre_sanity_check(root):
     for node in root.nodes():
-      if node != root:
-        if node.gamma == 0: # condition i
-          print("Condition i: node.gamma is", node.gamma)
+      if node.gamma == 0: # condition i
+        print("Condition i: node.gamma is", node.gamma)
+        return False
+      elif ((node.left != None) and (node.right != None)): # condition iv
+        if (node.left.gamma + node.right.gamma - node.gamma == 0):
+          print("Condition iv: node.left.gamma, node.right.gamma, node.gamma", node.left.gamma, node.right.gamma, node.gamma)
           return False
-        elif ((node.left != None) and (node.right != None)): # condition iv
-          if (node.left.gamma + node.right.gamma - node.gamma == 0):
-            print("Condition iv: node.left.gamma, node.right.gamma, node.gamma", node.left.gamma, node.right.gamma, node.gamma)
-            return False
-          elif (abs(node.left.gamma + node.right.gamma - node.gamma) < 1e-10):
-            print("Condition iv' (floating point error): node.left.gamma, node.right.gamma, node.gamma", node.left.gamma, node.right.gamma, node.gamma)
-            return False
+        elif (abs(node.left.gamma + node.right.gamma - node.gamma) < 1e-10):
+          print("Condition iv' (floating point error): node.left.gamma, node.right.gamma, node.gamma", node.left.gamma, node.right.gamma, node.gamma)
+          return False
     return True
 
   @staticmethod

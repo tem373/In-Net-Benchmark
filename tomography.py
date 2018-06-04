@@ -131,5 +131,5 @@ for i in range(1, num_trials + 1):
 # print out average of max errors
 print("Depth =", depth, "loss_probability =", loss_probability, "loss_type =", loss_type, \
       "num_probes =", num_probes, "num_trials =", num_trials,
-      "\navg. tomography error = ", round(mean(mean_tomography_errors), 5), "%", \
-      "avg. in-network error = ", round(mean(mean_true_errors), 5), "%")
+      "\navg. tomography error = ", round(mean(mean_tomography_errors), 5), "%,", len(mean_tomography_errors), "trials",\
+      "avg. in-network error = ", round(mean(mean_true_errors), 5), "%,", len(mean_true_errors), "trials")

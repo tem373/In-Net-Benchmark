@@ -53,6 +53,7 @@ class TomographyMle(object):
       tree.A = tree.gamma # Treat this as though the product is 0 per the paper
     else:
       assert (tree.left.gamma + tree.right.gamma - tree.gamma != 0)
+      assert (abs(tree.left.gamma + tree.right.gamma - tree.gamma) >= 1e-10)
       # closed form solution for binary trees
       tree.A = (tree.left.gamma * tree.right.gamma * 1.0) / (tree.left.gamma + tree.right.gamma - tree.gamma)
     tree.alpha = tree.A * 1.0 / total_A
@@ -71,6 +72,9 @@ class TomographyMle(object):
         elif ((node.left != None) and (node.right != None)): # condition iv
           if (node.left.gamma + node.right.gamma - node.gamma == 0):
             print("Condition iv: node.left.gamma, node.right.gamma, node.gamma", node.left.gamma, node.right.gamma, node.gamma)
+            return False
+          elif (abs(node.left.gamma + node.right.gamma - node.gamma) < 1e-10):
+            print("Condition iv' (floating point error): node.left.gamma, node.right.gamma, node.gamma", node.left.gamma, node.right.gamma, node.gamma)
             return False
     return True
 

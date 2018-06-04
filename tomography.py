@@ -103,7 +103,11 @@ for i in range(1, num_trials + 1):
   for node in mcast_tree.nodes():
     if node != mcast_tree:
       node_tomography_errors += [round(100.0 * abs(1 - node.alpha - float(loss_probability)) / float(loss_probability), 5)]
-  mean_tomography_errors += [mean(node_tomography_errors)]
+
+  if (mean(node_tomography_errors) > 1e10):
+    print("Abnormally high tomography error. Omitting this trial from error calculation.")
+  else:
+    mean_tomography_errors += [mean(node_tomography_errors)]
 
   # in network approach
   in_network_tree = Tree(depth, loss_probability, loss_type)
@@ -118,7 +122,11 @@ for i in range(1, num_trials + 1):
   for node in in_network_tree.nodes():
     if node != in_network_tree:
       node_true_errors += [round(100.0 * abs(node.true_loss - float(loss_probability)) / float(loss_probability), 5)]
-  mean_true_errors += [mean(node_true_errors)]
+
+  if (mean(node_true_errors) > 1e10):
+    print("Abnormally high in-network error. Omitting this trial from error calculation.")
+  else:
+    mean_true_errors += [mean(node_true_errors)]
 
 # print out average of max errors
 print("Depth =", depth, "loss_probability =", loss_probability, "loss_type =", loss_type, \

@@ -30,4 +30,6 @@ for loss in loss_rates:
       cmd1 = ["./tomography.py", str(depth), str(loss/100.0), "bernoulli", str(num_samples), "100"]
       cmd2 = ["./tomography.py", str(depth), str(loss/100.0), "gilbert_elliot", str(num_samples), "100"]
       program_wrapper(cmd1)
+      print("===========================================================================================")
       program_wrapper(cmd2)
+      print("===========================================================================================")

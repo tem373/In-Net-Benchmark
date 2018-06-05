@@ -14,6 +14,7 @@ def program_wrapper(program, t_stdout = subprocess.PIPE, t_stderr = subprocess.P
     print(err)
     sys.exit(sp.returncode)
   else :
+    print(" ".join(program), " succeeded with stdout:")
     print(out.decode("utf-8"))
     sys.stdout.flush()
     return (out, err)

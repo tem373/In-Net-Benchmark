@@ -82,7 +82,7 @@ class TomographyMle(object):
   def post_sanity_check(root):
     for node in root.nodes():
       if node != root:
-        if (node.alpha <= 0) or (node.alpha >= 1): # condition i
+        if (node.alpha <= 0) or (node.alpha >= 1): # condition ii/iii
           print("Condition ii/iii: node.alpha is", node.alpha)
           return False
     return True

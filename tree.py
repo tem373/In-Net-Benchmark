@@ -111,7 +111,7 @@ class Tree:
            "), loss = (" + str(self.incoming_loss_prob) + ")"
 
   # deliver probe? Also use this to calculate true loss rate at incoming link to each node
-  def deliver_probe(self, tick):
+  def deliver_probe(self):
     self.num_packets_incoming += 1
     if (self.loss_type == "bernoulli"):
       delivered = not (numpy.random.random() < self.incoming_loss_prob)
@@ -124,13 +124,13 @@ class Tree:
     return delivered
 
   # send multicast probe down the tree and record outcome at all leaf nodes (receivers)
-  def send_multicast_probe(self, tick):
+  def send_multicast_probe(self):
     # For every node, look at whether packet is dropped on incoming link
     # And recursively on the trees rooted at that node
 
     # Base case: leaf node: look at whether packet is dropped on incoming link
     if (self.left == None and self.right == None):
-      return [(self.id, self.deliver_probe(tick))]
+      return [(self.id, self.deliver_probe())]
     # Recursive case: intermediate nodes
     else:
       if (self.parent == None):
@@ -138,11 +138,11 @@ class Tree:
         probe_delivered = True
       else:
         # Again, look at where packet is dropped on incoming link
-        probe_delivered = self.deliver_probe(tick)
+        probe_delivered = self.deliver_probe()
 
       # recurse left and right if probe was delivered 
       if (probe_delivered):
-        return self.left.send_multicast_probe(tick) + self.right.send_multicast_probe(tick)
+        return self.left.send_multicast_probe() + self.right.send_multicast_probe()
       # otherwise save some work and record an outcome of 0 at all receivers below self
       else:
         ret = []
@@ -153,14 +153,14 @@ class Tree:
   # send independent probes down every node
   # This is implemented recursively for convenience,
   # but is equivalent to running an independent random process at each node.
-  def send_independent_probes(self, tick):
+  def send_independent_probes(self):
     # For the root node don't bother delivering, just recurse
     if (self.parent == None):
       probe_delivered = True
     else:
-      probe_delivered = self.deliver_probe(tick)
+      probe_delivered = self.deliver_probe()
 
     # Recursion logic: deliver left and right probes regardless of value of probe_delivered
     if (self.left != None and self.right != None):
-      self.left.send_independent_probes(tick)
-      self.right.send_independent_probes(tick)
+      self.left.send_independent_probes()
+      self.right.send_independent_probes()

@@ -113,7 +113,7 @@ for i in range(1, num_trials + 1):
     if loss_type == "gilbert_elliot":
       for node in in_network_tree.nodes():
         node.state_transition()
-    in_network_tree.send_independent_probes(i)
+    in_network_tree.send_independent_probes()
 
   # Compute max errors for in network approach
   node_true_errors = []
@@ -133,7 +133,7 @@ for i in range(1, num_trials + 1):
     if loss_type == "gilbert_elliot":
       for node in mcast_tree.nodes():
         node.state_transition()
-    outcome = mcast_tree.send_multicast_probe(i) # Pass in probe number i as tick to send_multicast_probe
+    outcome = mcast_tree.send_multicast_probe()
     for rx_tuple in outcome:
       probe[rx_tuple[0]] = 1 if rx_tuple[1] else 0
     TomographyMle.update_Y(mcast_tree, probe)

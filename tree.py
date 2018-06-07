@@ -164,3 +164,22 @@ class Tree:
     if (self.left != None and self.right != None):
       self.left.send_independent_probes()
       self.right.send_independent_probes()
+
+  # Send a multicast probe that is delayed by an independent amount
+  # at each link. This amount is sampled from a delay distribution.
+  # There are no losses in this function.
+  # Returns a vector of end-to-end one-way delays from source to each of the receivers under the tree.
+  def send_multicast_probe_with_delay(self):
+    mean_delay = 5
+    incoming_link_delay = 0
+    if (self.parent == None):
+      incoming_link_delay = 0
+    else:
+      incoming_link_delay = numpy.random.geometric(1.0/mean_delay) # TODO: unhardcode it
+
+    if (self.left != None and self.right != None):
+      return [x + incoming_link_delay for x in self.left.send_multicast_probe_with_delay()] + \
+             [x + incoming_link_delay for x in self.right.send_multicast_probe_with_delay()]
+    else:
+      assert(self.left == None and self.right == None)
+      return [incoming_link_delay]

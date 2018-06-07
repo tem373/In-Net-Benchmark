@@ -10,8 +10,8 @@ class LossDistribution:
     if (t_loss_type == "gilbert_elliot"):
       # steady-state probability of being in "bad" is the same as self.incoming_loss_prob
       self.link_state = "bad" if (numpy.random.random() < self.incoming_loss_prob) else "good"
-      prob_escape_good = LOW_ESCAPE_PROBABILITY
-      self.prob_escape_bad = (prob_escape_good / self.incoming_loss_prob) - prob_escape_good
+      self.prob_escape_good = LOW_ESCAPE_PROBABILITY
+      self.prob_escape_bad = (self.prob_escape_good / self.incoming_loss_prob) - self.prob_escape_good
       assert((self.prob_escape_bad > 0) and (self.prob_escape_bad < 1))
 
   # State transitions for Gilbert-Elliot loss model

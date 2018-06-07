@@ -28,9 +28,8 @@ for i in range(1, num_trials + 1):
   # in network approach
   in_network_tree = Tree(depth, loss_probability, loss_type)
   for i in range(0, num_probes):
-    if loss_type == "gilbert_elliot":
-      for node in in_network_tree.nodes():
-        node.tick()
+    for node in in_network_tree.nodes():
+      node.tick()
     in_network_tree.send_independent_probes()
 
   # Compute max errors for in network approach
@@ -48,9 +47,8 @@ for i in range(1, num_trials + 1):
     probe[receiver.id] = 0
   LossTomographyMle.create_estimator(mcast_tree)
   for i in range(0, num_probes):
-    if loss_type == "gilbert_elliot":
-      for node in mcast_tree.nodes():
-        node.state_transition()
+    for node in mcast_tree.nodes():
+      node.tick()
     outcome = mcast_tree.send_multicast_probe()
     for rx_tuple in outcome:
       probe[rx_tuple[0]] = 1 if rx_tuple[1] else 0

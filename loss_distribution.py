@@ -5,6 +5,8 @@ LOW_ESCAPE_PROBABILITY = 0.001 # Low probability of escaping a state in the Gilb
 class LossDistribution:
   def __init__(self, t_loss_prob, t_loss_type):
     assert(t_loss_type in ["bernoulli", "gilbert_elliot"])
+    assert(t_loss_prob > 0)
+    assert(t_loss_prob < 1)
     self.incoming_loss_prob = t_loss_prob
     self.loss_type = t_loss_type
     if (t_loss_type == "gilbert_elliot"):

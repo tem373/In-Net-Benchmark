@@ -1,4 +1,5 @@
-from loss_distribution import LossDistribution
+from loss_distribution  import LossDistribution
+from delay_distribution import DelayDistribution
 import numpy
 
 # generate new IDs for nodes
@@ -9,34 +10,36 @@ def new_id():
   return new_id.counter
 
 class Tree:
-  def initialize_tree(self, loss_prob, loss_type):
+  def initialize_tree(self, expt_type, mean_delay_or_loss, dist_type):
     self.id = new_id()
     self.parent = None # This will be fixed once the parent is constructed (see below)
     self.true_loss = 0.0
     self.num_packets_incoming = 0
-    self.loss_dist = LossDistribution(loss_prob, loss_type) 
+    assert(expt_type in ["delay", "loss"])
+    if (expt_type == "loss"): 
+      self.loss_dist  = LossDistribution(mean_delay_or_loss, dist_type) 
+    else:
+      self.delay_dist = DelayDistribution(mean_delay_or_loss, dist_type)
 
   def tick(self):
     # Anything that needs to run periodically on every probe/tick
     self.loss_dist.state_transition()
  
   # construct tree of depth depth
-  # with all probabilities assigned to loss_prob
-  def __init__(self, depth, loss_prob, loss_type):
+  def __init__(self, depth, expt_type, mean_delay_or_loss, dist_type):
     assert(depth >= 1)
-    assert(loss_prob > 0)
-    assert(loss_prob < 1)
+    assert(expt_type in ["delay", "loss"])
 
     # Construct leaf nodes (base case)
     if (depth == 1):
       self.left = None
       self.right = None
-      self.initialize_tree(loss_prob, loss_type)
+      self.initialize_tree(expt_type, mean_delay_or_loss, dist_type)
 
     else:
       # construct left and right trees
-      left_tree  = Tree(depth - 1, loss_prob, loss_type)
-      right_tree = Tree(depth - 1, loss_prob, loss_type)
+      left_tree  = Tree(depth - 1, expt_type, mean_delay_or_loss, dist_type)
+      right_tree = Tree(depth - 1, expt_type, mean_delay_or_loss, dist_type)
 
       # set their parents (which are currently None) to self
       left_tree.parent = self
@@ -45,7 +48,7 @@ class Tree:
       # Now construct self itself
       self.left  = left_tree
       self.right = right_tree
-      self.initialize_tree(loss_prob, loss_type)
+      self.initialize_tree(expt_type, mean_delay_or_loss, dist_type)
 
   # get a list of receivers under this tree
   def receivers(self):
@@ -126,7 +129,7 @@ class Tree:
     if (self.parent == None):
       incoming_link_delay = 0
     else:
-      incoming_link_delay = numpy.random.geometric(1.0/mean_delay) # TODO: unhardcode it
+      incoming_link_delay = self.delay_dist.sample()
 
     if (self.left != None and self.right != None):
       return [x + incoming_link_delay for x in self.left.send_multicast_probe_with_delay()] + \

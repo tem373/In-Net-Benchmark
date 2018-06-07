@@ -7,7 +7,7 @@ from tree import Tree
 
 # max likelihood estimator from https://ieeexplore.ieee.org/document/796384/
 # "Multicast-based inference of network-internal loss characteristics"
-class TomographyMle(object):
+class LossTomographyMle(object):
   @staticmethod
   def create_estimator(tree):
     # create the Y, gamma, and A for each node
@@ -33,8 +33,8 @@ class TomographyMle(object):
       return tree.Y
     else: 
       # process left and right branches of tree
-      Y_left  = TomographyMle.compute_gamma(tree.left)
-      Y_right = TomographyMle.compute_gamma(tree.right)
+      Y_left  = LossTomographyMle.compute_gamma(tree.left)
+      Y_right = LossTomographyMle.compute_gamma(tree.right)
 
       # logic or the left and right together
       assert(len(Y_left) == len(Y_right))
@@ -58,8 +58,8 @@ class TomographyMle(object):
       tree.A = (tree.left.gamma * tree.right.gamma * 1.0) / (tree.left.gamma + tree.right.gamma - tree.gamma)
     tree.alpha = tree.A * 1.0 / total_A
     if (tree.left != None and tree.right != None):
-      TomographyMle.compute_mle(tree.left,  tree.A)
-      TomographyMle.compute_mle(tree.right, tree.A)
+      LossTomographyMle.compute_mle(tree.left,  tree.A)
+      LossTomographyMle.compute_mle(tree.right, tree.A)
 
   @staticmethod
   # Check conditions i and iv from 5.1 of http://nickduffield.net/download/papers/minctoit.pdf
@@ -128,7 +128,7 @@ for i in range(1, num_trials + 1):
   probe = dict() # To store results of probes keyed by receiver ID
   for receiver in mcast_tree.receivers():
     probe[receiver.id] = 0
-  TomographyMle.create_estimator(mcast_tree)
+  LossTomographyMle.create_estimator(mcast_tree)
   for i in range(0, num_probes):
     if loss_type == "gilbert_elliot":
       for node in mcast_tree.nodes():
@@ -136,15 +136,15 @@ for i in range(1, num_trials + 1):
     outcome = mcast_tree.send_multicast_probe()
     for rx_tuple in outcome:
       probe[rx_tuple[0]] = 1 if rx_tuple[1] else 0
-    TomographyMle.update_Y(mcast_tree, probe)
+    LossTomographyMle.update_Y(mcast_tree, probe)
 
   # Now compute MLE
-  TomographyMle.compute_gamma(mcast_tree)
-  if (TomographyMle.pre_sanity_check(mcast_tree) == False):
+  LossTomographyMle.compute_gamma(mcast_tree)
+  if (LossTomographyMle.pre_sanity_check(mcast_tree) == False):
     print("Pre sanity check failed. Skipping this trial.\n")
     continue
-  TomographyMle.compute_mle(mcast_tree, 1.0)
-  if (TomographyMle.post_sanity_check(mcast_tree) == False):
+  LossTomographyMle.compute_mle(mcast_tree, 1.0)
+  if (LossTomographyMle.post_sanity_check(mcast_tree) == False):
     print("Post sanity check failed. Skipping this trial.\n")
     continue
 

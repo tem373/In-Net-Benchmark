@@ -1,5 +1,5 @@
+from loss_distribution import LossDistribution
 import numpy
-LOW_ESCAPE_PROBABILITY = 0.001 # Low probability of escaping a state in the Gilbert-Elliot model
 
 # generate new IDs for nodes
 def new_id():
@@ -8,27 +8,18 @@ def new_id():
   new_id.counter += 1
   return new_id.counter
 
-# compute prob_escape_bad in the Gilbert-Elliot model, given prob_loss
-def get_prob_escape_bad(prob_loss):
-  prob_escape_good = LOW_ESCAPE_PROBABILITY
-  ret = (prob_escape_good / prob_loss) - prob_escape_good
-  assert((ret > 0) and (ret < 1))
-  return ret
-
 class Tree:
   def initialize_tree(self, loss_prob, loss_type):
     self.id = new_id()
-    self.incoming_loss_prob = loss_prob
     self.parent = None # This will be fixed once the parent is constructed (see below)
     self.true_loss = 0.0
     self.num_packets_incoming = 0
-    self.loss_type = loss_type
-    self.prob_escape_good = LOW_ESCAPE_PROBABILITY
-    self.prob_escape_bad = get_prob_escape_bad(self.incoming_loss_prob)
+    self.loss_dist = LossDistribution(loss_prob, loss_type) 
 
-    # steady-state probability of being in "bad" is the same as self.incoming_loss_prob
-    self.link_state = "bad" if (numpy.random.random() < self.incoming_loss_prob) else "good"
-
+  def tick(self):
+    # Anything that needs to run periodically on every probe/tick
+    self.loss_dist.state_transition()
+ 
   # construct tree of depth depth
   # with all probabilities assigned to loss_prob
   def __init__(self, depth, loss_prob, loss_type):
@@ -56,15 +47,6 @@ class Tree:
       self.right = right_tree
       self.initialize_tree(loss_prob, loss_type)
 
-  # State transitions for Gilbert-Elliot loss model
-  # Run this even if there aren't packets to maintain correctness of model.
-  def state_transition(self):
-    if (self.link_state == "good"):
-      self.link_state = "bad" if (numpy.random.random() < self.prob_escape_good) else "good"
-    else:
-      assert(self.link_state == "bad")
-      self.link_state = "good" if (numpy.random.random() < self.prob_escape_bad) else "bad"
-
   # get a list of receivers under this tree
   def receivers(self):
     if (self.left == None and self.right == None):
@@ -89,19 +71,6 @@ class Tree:
            "), right=(" + str(self.right) + \
            "), loss = (" + str(self.incoming_loss_prob) + ")"
 
-  # deliver probe? Also use this to calculate true loss rate at incoming link to each node
-  def deliver_probe(self):
-    self.num_packets_incoming += 1
-    if (self.loss_type == "bernoulli"):
-      delivered = not (numpy.random.random() < self.incoming_loss_prob)
-    else:
-      assert(self.loss_type == "gilbert_elliot")
-      delivered = (self.link_state == "good")
-
-    loss = 1 if (not delivered) else 0
-    self.true_loss = self.true_loss + (loss - self.true_loss)/self.num_packets_incoming
-    return delivered
-
   # send multicast probe down the tree and record outcome at all leaf nodes (receivers)
   def send_multicast_probe(self):
     # For every node, look at whether packet is dropped on incoming link
@@ -109,7 +78,7 @@ class Tree:
 
     # Base case: leaf node: look at whether packet is dropped on incoming link
     if (self.left == None and self.right == None):
-      return [(self.id, self.deliver_probe())]
+      return [(self.id, self.loss_dist.deliver_probe())]
     # Recursive case: intermediate nodes
     else:
       if (self.parent == None):
@@ -117,7 +86,7 @@ class Tree:
         probe_delivered = True
       else:
         # Again, look at where packet is dropped on incoming link
-        probe_delivered = self.deliver_probe()
+        probe_delivered = self.loss_dist.deliver_probe()
 
       # recurse left and right if probe was delivered 
       if (probe_delivered):
@@ -137,7 +106,10 @@ class Tree:
     if (self.parent == None):
       probe_delivered = True
     else:
-      probe_delivered = self.deliver_probe()
+      probe_delivered = self.loss_dist.deliver_probe()
+      self.num_packets_incoming += 1
+      loss = 1 if (not probe_delivered) else 0
+      self.true_loss = self.true_loss + (loss - self.true_loss)/self.num_packets_incoming
 
     # Recursion logic: deliver left and right probes regardless of value of probe_delivered
     if (self.left != None and self.right != None):

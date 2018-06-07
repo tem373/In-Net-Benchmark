@@ -30,7 +30,7 @@ for i in range(1, num_trials + 1):
   for i in range(0, num_probes):
     if loss_type == "gilbert_elliot":
       for node in in_network_tree.nodes():
-        node.state_transition()
+        node.tick()
     in_network_tree.send_independent_probes()
 
   # Compute max errors for in network approach

@@ -16,19 +16,18 @@ def get_prob_escape_bad(prob_loss):
   return ret
 
 class Tree:
-  # default constructor
-  def __init__(self):
-    self.left = None
-    self.right = None
-    self.id = -1
-    self.incoming_loss_prob = 0.0
-    self.parent = None
+  def initialize_tree(self, loss_prob, loss_type):
+    self.id = new_id()
+    self.incoming_loss_prob = loss_prob
+    self.parent = None # This will be fixed once the parent is constructed (see below)
     self.true_loss = 0.0
     self.num_packets_incoming = 0
-    self.loss_type = "bernoulli"
-    self.prob_escape_good = self.LOW_ESCAPE_PROBABILITY
-    self.prob_escape_bad = self.LOW_ESCAPE_PROBABILITY
-    self.link_state = "undefined"
+    self.loss_type = loss_type
+    self.prob_escape_good = LOW_ESCAPE_PROBABILITY
+    self.prob_escape_bad = get_prob_escape_bad(self.incoming_loss_prob)
+
+    # steady-state probability of being in "bad" is the same as self.incoming_loss_prob
+    self.link_state = "bad" if (numpy.random.random() < self.incoming_loss_prob) else "good"
 
   # construct tree of depth depth
   # with all probabilities assigned to loss_prob
@@ -41,17 +40,7 @@ class Tree:
     if (depth == 1):
       self.left = None
       self.right = None
-      self.id = new_id()
-      self.incoming_loss_prob = loss_prob
-      self.parent = None # This will be fixed once the parent is constructed (see below)
-      self.true_loss = 0.0
-      self.num_packets_incoming = 0
-      self.loss_type = loss_type
-      self.prob_escape_good = LOW_ESCAPE_PROBABILITY
-      self.prob_escape_bad = get_prob_escape_bad(self.incoming_loss_prob)
-
-      # steady-state probability of being in "bad" is the same as self.incoming_loss_prob
-      self.link_state = "bad" if (numpy.random.random() < self.incoming_loss_prob) else "good"
+      self.initialize_tree(loss_prob, loss_type)
 
     else:
       # construct left and right trees
@@ -65,17 +54,7 @@ class Tree:
       # Now construct self itself
       self.left  = left_tree
       self.right = right_tree
-      self.id    = new_id()
-      self.incoming_loss_prob = loss_prob
-      self.parent = None
-      self.true_loss = 0.0
-      self.num_packets_incoming = 0
-      self.loss_type = loss_type
-      self.prob_escape_good = LOW_ESCAPE_PROBABILITY
-      self.prob_escape_bad = get_prob_escape_bad(self.incoming_loss_prob)
-
-      # steady-state probability of being in "bad" is the same as self.incoming_loss_prob
-      self.link_state = "bad" if (numpy.random.random() < self.incoming_loss_prob) else "good"
+      self.initialize_tree(loss_prob, loss_type)
 
   # State transitions for Gilbert-Elliot loss model
   # Run this even if there aren't packets to maintain correctness of model.

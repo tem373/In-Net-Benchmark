@@ -21,6 +21,13 @@ class Tree:
     else:
       self.delay_dist = DelayDistribution(mean_delay_or_loss, dist_type)
 
+  def children(self):
+    if (self.left == None and self.right == None):
+      return []
+    else:
+      assert(self.left != None and self.right != None)
+      return [self.left, self.right]
+
   def tick(self):
     # Anything that needs to run periodically on every probe/tick
     self.loss_dist.state_transition()

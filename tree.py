@@ -73,13 +73,10 @@ class Tree:
 
   def __str__(self):
     assert(self.id != -1)
-    assert(self.incoming_loss_prob != 0)
-    assert(self.incoming_loss_prob != 1)
     assert((self.left == None and self.right == None) or (self.left != None and self.right != None))
     return "Root = (" + str(self.id) + \
            "), left=(" + str(self.left) + \
-           "), right=(" + str(self.right) + \
-           "), loss = (" + str(self.incoming_loss_prob) + ")"
+           "), right=(" + str(self.right) + ")"
 
   # send multicast probe down the tree and record outcome at all leaf nodes (receivers)
   def send_multicast_probe(self):
@@ -136,7 +133,7 @@ class Tree:
     if (self.parent == None):
       incoming_link_delay = 0
     else:
-      incoming_link_delay = self.delay_dist.sample()
+      incoming_link_delay = self.delay_dist.delay_sample()
 
     if (self.left != None and self.right != None):
       return [x + incoming_link_delay for x in self.left.send_multicast_probe_with_delay()] + \

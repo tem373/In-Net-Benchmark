@@ -9,7 +9,7 @@ from delay_mle import DelayTomographyMle
 numpy.random.seed(1)
 
 # Parameters
-num_probes = 1000000
+num_probes = 10000
 
 # Create tree
 mcast_tree = Tree(2, "delay", 1, "uniform")

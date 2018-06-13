@@ -1,5 +1,6 @@
 #! /usr/bin/python3
 
+import sys
 import math
 import numpy
 from tree import Tree
@@ -12,7 +13,7 @@ numpy.random.seed(1)
 num_probes = 100000
 
 # Create tree
-mcast_tree = Tree(2, "delay", 2, "geometric")
+mcast_tree = Tree(int(sys.argv[1]), "delay", int(sys.argv[2]), sys.argv[3])
 
 # multicast estimator setup
 max_y = -1

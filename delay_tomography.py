@@ -32,7 +32,7 @@ bin_width = 1
 i_max = math.ceil((max_y * 1.0) / bin_width)
 print("i_max is", i_max)
 DelayTomographyMle.create_estimator(mcast_tree, i_max = i_max, n = num_probes)
-DelayTomographyMle.main(mcast_tree, q = bin_width, i_max = i_max, n = num_probes)
+DelayTomographyMle.main(mcast_tree, q = bin_width, i_max = i_max, n = num_probes, epsilon = float(sys.argv[4]))
 print("inferred probabilities for tree", mcast_tree)
 for node in mcast_tree.nodes():
   print(node.id, node.alpha)

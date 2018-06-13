@@ -37,7 +37,7 @@ class DelayTomographyMle(object):
     tree.parent.A[0] = 1
 
   @staticmethod
-  def main(tree, q, i_max, n):
+  def main(tree, q, i_max, n, epsilon):
     assert(tree.parent != None) # Can't have a parentless tree.
 
     # Y and gamma calculations
@@ -48,22 +48,21 @@ class DelayTomographyMle(object):
       DelayTomographyMle.infer_delay(tree, i, q, i_max)
 
     # Run sanity check
-    DelayTomographyMle.sanity_check(tree, i_max)
+    DelayTomographyMle.sanity_check(tree, i_max, epsilon)
 
-  def sanity_check(tree, i_max):
+  def sanity_check(tree, i_max, epsilon):
     # Sanity check the values with some tolerance for floating point approximations
-    epsilon = 0.01
     for node in tree.nodes():
       for i in range(0, i_max + 1):
-        assert(node.alpha[i] >= 0-epsilon)
-        assert(node.A[i]     >= 0-epsilon)
-        assert(node.gamma[i] >= 0-epsilon)
-        assert(node.beta[i]  >= 0-epsilon)
+        assert(node.alpha[i] >= 0-epsilon), print(node.alpha[i])
+        assert(node.A[i]     >= 0-epsilon), print(node.A[i])
+        assert(node.gamma[i] >= 0-epsilon), print(node.gamma[i])
+        assert(node.beta[i]  >= 0-epsilon), print(node.beta[i])
 
-        assert(node.alpha[i] <= 1+epsilon)
-        assert(node.A[i]     <= 1+epsilon)
-        assert(node.gamma[i] <= 1+epsilon)
-        assert(node.beta[i]  <= 1+epsilon)
+        assert(node.alpha[i] <= 1+epsilon), print(node.alpha[i])
+        assert(node.A[i]     <= 1+epsilon), print(node.A[i])
+        assert(node.gamma[i] <= 1+epsilon), print(node.gamma[i])
+        assert(node.beta[i]  <= 1+epsilon), print(node.beta[i])
 
   @staticmethod
   def find_y(k, q, i_max, n):

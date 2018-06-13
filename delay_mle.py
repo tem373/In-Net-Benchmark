@@ -27,13 +27,14 @@ class DelayTomographyMle(object):
     # Create the alpha, A, Y, gamma, beta data structures for each node 
     all_nodes = tree.nodes()
     for node in all_nodes:
-      node.alpha = [0.0] * (i_max + 1)
-      node.A = [0.0] * (i_max + 1)
-      node.gamma = [0.0] * (i_max + 1)
+      node.alpha = [-1.0] * (i_max + 1)
+      node.A = [-1.0] * (i_max + 1)
+      node.gamma = [-1.0] * (i_max + 1)
       node.beta = [-1.0] * (i_max + 1)
 
+    # initialize root alone according to paper's instructions.
     tree.parent.A = [0.0] * (i_max + 1)
-    tree.parent.A[0] = 1 # initialize A_0(0) = 1 according to paper's instructions. 
+    tree.parent.A[0] = 1
 
   @staticmethod
   def main(tree, q, i_max, n):

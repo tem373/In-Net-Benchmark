@@ -42,13 +42,28 @@ class DelayTomographyMle(object):
 
     # Y and gamma calculations
     DelayTomographyMle.find_y(tree, q, i_max, n)
-    print("Gamma values for tree ", tree)
-    for node in tree.nodes():
-      print(node.id, node.gamma)
 
     # A calculations
     for i in range(0, i_max + 1):
       DelayTomographyMle.infer_delay(tree, i, q, i_max)
+
+    # Run sanity check
+    DelayTomographyMle.sanity_check(tree, i_max)
+
+  def sanity_check(tree, i_max):
+    # Sanity check the values with some tolerance for floating point approximations
+    epsilon = 0.01
+    for node in tree.nodes():
+      for i in range(0, i_max + 1):
+        assert(node.alpha[i] >= 0-epsilon)
+        assert(node.A[i]     >= 0-epsilon)
+        assert(node.gamma[i] >= 0-epsilon)
+        assert(node.beta[i]  >= 0-epsilon)
+
+        assert(node.alpha[i] <= 1+epsilon)
+        assert(node.A[i]     <= 1+epsilon)
+        assert(node.gamma[i] <= 1+epsilon)
+        assert(node.beta[i]  <= 1+epsilon)
 
   @staticmethod
   def find_y(k, q, i_max, n):

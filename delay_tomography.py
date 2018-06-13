@@ -9,10 +9,10 @@ from delay_mle import DelayTomographyMle
 numpy.random.seed(1)
 
 # Parameters
-num_probes = 10000
+num_probes = 100000
 
 # Create tree
-mcast_tree = Tree(2, "delay", 1, "uniform")
+mcast_tree = Tree(2, "delay", 2, "geometric")
 
 # multicast estimator setup
 max_y = -1

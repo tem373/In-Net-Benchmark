@@ -15,7 +15,8 @@ class DelayTomographyMle(object):
     for node in all_nodes:
       node.Y = [math.inf] * n
     # create a fake root node so that k.parent doesn't throw an error
-    root = Tree(1, "delay", 0.5, "exponential")
+    root = Tree(1, "delay", 0.5, "geometric") # The exact values here are irrelevant because root is a fake node
+    root.id = -1
     root.left = tree
     root.right = tree
     root.parent = None

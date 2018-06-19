@@ -30,7 +30,7 @@ else:
 for loss in loss_rates:
   for num_samples in [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]:
     for depth in [3, 4, 5]:
-      cmd1 = ["./tomography.py", str(depth), str(loss/100.0), "bernoulli", str(num_samples), "100"]
+      cmd1 = ["./simulation.py", str(depth), "loss", str(loss/100.0), "bernoulli", str(num_samples), "100"]
       program_wrapper(cmd1)
       print("===========================================================================================")
 
@@ -38,6 +38,6 @@ for loss in loss_rates:
 for loss in loss_rates:
   for num_samples in [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000]:
     for depth in [3, 4, 5]:
-      cmd2 = ["./tomography.py", str(depth), str(loss/100.0), "gilbert_elliot", str(num_samples), "100"]
+      cmd2 = ["./simulation.py", str(depth), "loss", str(loss/100.0), "gilbert_elliot", str(num_samples), "100"]
       program_wrapper(cmd2)
       print("===========================================================================================")

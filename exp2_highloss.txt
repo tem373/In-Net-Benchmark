@@ -1,0 +1,2772 @@
+./simulation.py 3 loss 0.1 bernoulli 1000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 1000 num_trials = 100 
+avg. tomography error =  8.73853 %, 100 trials 
+avg. in-network error =  7.03333 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 bernoulli 1000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 1000 num_trials = 100 
+avg. tomography error =  9.01041 %, 100 trials 
+avg. in-network error =  7.63 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 bernoulli 1000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 1000 num_trials = 100 
+avg. tomography error =  9.23611 %, 100 trials 
+avg. in-network error =  7.56967 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 bernoulli 2000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 2000 num_trials = 100 
+avg. tomography error =  5.86798 %, 100 trials 
+avg. in-network error =  5.2725 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 bernoulli 2000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 2000 num_trials = 100 
+avg. tomography error =  6.24027 %, 100 trials 
+avg. in-network error =  5.46393 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 bernoulli 2000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 2000 num_trials = 100 
+avg. tomography error =  6.5463 %, 100 trials 
+avg. in-network error =  5.27417 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 bernoulli 3000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 3000 num_trials = 100 
+avg. tomography error =  4.85013 %, 100 trials 
+avg. in-network error =  4.37111 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 bernoulli 3000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 3000 num_trials = 100 
+avg. tomography error =  5.01202 %, 100 trials 
+avg. in-network error =  4.36476 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 bernoulli 3000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 3000 num_trials = 100 
+avg. tomography error =  5.26491 %, 100 trials 
+avg. in-network error =  4.27389 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 bernoulli 4000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 4000 num_trials = 100 
+avg. tomography error =  4.38512 %, 100 trials 
+avg. in-network error =  3.82375 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 bernoulli 4000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 4000 num_trials = 100 
+avg. tomography error =  4.45195 %, 100 trials 
+avg. in-network error =  3.74554 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 bernoulli 4000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 4000 num_trials = 100 
+avg. tomography error =  4.60015 %, 100 trials 
+avg. in-network error =  3.6895 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 bernoulli 5000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 5000 num_trials = 100 
+avg. tomography error =  3.69216 %, 100 trials 
+avg. in-network error =  3.36767 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 bernoulli 5000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 5000 num_trials = 100 
+avg. tomography error =  3.90405 %, 100 trials 
+avg. in-network error =  3.39186 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 bernoulli 5000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 5000 num_trials = 100 
+avg. tomography error =  4.23065 %, 100 trials 
+avg. in-network error =  3.3076 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 bernoulli 6000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 6000 num_trials = 100 
+avg. tomography error =  3.4524 %, 100 trials 
+avg. in-network error =  3.16361 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 bernoulli 6000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 6000 num_trials = 100 
+avg. tomography error =  3.56839 %, 100 trials 
+avg. in-network error =  3.16262 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 bernoulli 6000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 6000 num_trials = 100 
+avg. tomography error =  3.79755 %, 100 trials 
+avg. in-network error =  3.04433 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 bernoulli 7000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 7000 num_trials = 100 
+avg. tomography error =  3.1799 %, 100 trials 
+avg. in-network error =  2.93524 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 bernoulli 7000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 7000 num_trials = 100 
+avg. tomography error =  3.24481 %, 100 trials 
+avg. in-network error =  2.93878 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 bernoulli 7000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 7000 num_trials = 100 
+avg. tomography error =  3.47536 %, 100 trials 
+avg. in-network error =  2.81586 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 bernoulli 8000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 8000 num_trials = 100 
+avg. tomography error =  2.937 %, 100 trials 
+avg. in-network error =  2.66333 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 bernoulli 8000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 8000 num_trials = 100 
+avg. tomography error =  3.07481 %, 100 trials 
+avg. in-network error =  2.72991 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 bernoulli 8000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 8000 num_trials = 100 
+avg. tomography error =  3.18667 %, 100 trials 
+avg. in-network error =  2.65375 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 bernoulli 9000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 9000 num_trials = 100 
+avg. tomography error =  2.72594 %, 100 trials 
+avg. in-network error =  2.58167 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 bernoulli 9000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 9000 num_trials = 100 
+avg. tomography error =  2.94212 %, 100 trials 
+avg. in-network error =  2.57952 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 bernoulli 9000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 9000 num_trials = 100 
+avg. tomography error =  3.0126 %, 100 trials 
+avg. in-network error =  2.47352 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 bernoulli 10000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 10000 num_trials = 100 
+avg. tomography error =  2.58424 %, 100 trials 
+avg. in-network error =  2.4365 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 bernoulli 10000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 10000 num_trials = 100 
+avg. tomography error =  2.76258 %, 100 trials 
+avg. in-network error =  2.46157 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 bernoulli 10000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = bernoulli num_probes = 10000 num_trials = 100 
+avg. tomography error =  2.96739 %, 100 trials 
+avg. in-network error =  2.35253 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 bernoulli 1000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 1000 num_trials = 100 
+avg. tomography error =  6.60207 %, 100 trials 
+avg. in-network error =  4.7975 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 bernoulli 1000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 1000 num_trials = 100 
+avg. tomography error =  7.14876 %, 100 trials 
+avg. in-network error =  5.00179 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 bernoulli 1000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 1000 num_trials = 100 
+avg. tomography error =  7.97065 %, 100 trials 
+avg. in-network error =  5.09633 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 bernoulli 2000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 2000 num_trials = 100 
+avg. tomography error =  4.55006 %, 100 trials 
+avg. in-network error =  3.61542 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 bernoulli 2000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 2000 num_trials = 100 
+avg. tomography error =  5.16841 %, 100 trials 
+avg. in-network error =  3.58518 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 bernoulli 2000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 2000 num_trials = 100 
+avg. tomography error =  5.50997 %, 100 trials 
+avg. in-network error =  3.53017 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 bernoulli 3000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 3000 num_trials = 100 
+avg. tomography error =  3.7186 %, 100 trials 
+avg. in-network error =  2.96444 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 bernoulli 3000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 3000 num_trials = 100 
+avg. tomography error =  4.22618 %, 100 trials 
+avg. in-network error =  2.87512 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 bernoulli 3000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 3000 num_trials = 100 
+avg. tomography error =  4.54 %, 100 trials 
+avg. in-network error =  2.83178 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 bernoulli 4000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 4000 num_trials = 100 
+avg. tomography error =  3.22603 %, 100 trials 
+avg. in-network error =  2.55646 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 bernoulli 4000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 4000 num_trials = 100 
+avg. tomography error =  3.52883 %, 100 trials 
+avg. in-network error =  2.51759 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 bernoulli 4000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 4000 num_trials = 100 
+avg. tomography error =  3.89531 %, 100 trials 
+avg. in-network error =  2.43033 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 bernoulli 5000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 5000 num_trials = 100 
+avg. tomography error =  2.7474 %, 100 trials 
+avg. in-network error =  2.24967 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 bernoulli 5000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 5000 num_trials = 100 
+avg. tomography error =  3.19255 %, 100 trials 
+avg. in-network error =  2.31243 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 bernoulli 5000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 5000 num_trials = 100 
+avg. tomography error =  3.45226 %, 100 trials 
+avg. in-network error =  2.19387 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 bernoulli 6000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 6000 num_trials = 100 
+avg. tomography error =  2.63326 %, 100 trials 
+avg. in-network error =  2.04806 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 bernoulli 6000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 6000 num_trials = 100 
+avg. tomography error =  2.98537 %, 100 trials 
+avg. in-network error =  2.10298 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 bernoulli 6000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 6000 num_trials = 100 
+avg. tomography error =  3.21921 %, 100 trials 
+avg. in-network error =  2.03872 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 bernoulli 7000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 7000 num_trials = 100 
+avg. tomography error =  2.47148 %, 100 trials 
+avg. in-network error =  1.9325 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 bernoulli 7000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 7000 num_trials = 100 
+avg. tomography error =  2.65213 %, 100 trials 
+avg. in-network error =  1.97281 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 bernoulli 7000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 7000 num_trials = 100 
+avg. tomography error =  2.95797 %, 100 trials 
+avg. in-network error =  1.89479 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 bernoulli 8000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 8000 num_trials = 100 
+avg. tomography error =  2.18249 %, 100 trials 
+avg. in-network error =  1.69437 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 bernoulli 8000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 8000 num_trials = 100 
+avg. tomography error =  2.50218 %, 100 trials 
+avg. in-network error =  1.86156 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 bernoulli 8000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 8000 num_trials = 100 
+avg. tomography error =  2.79889 %, 100 trials 
+avg. in-network error =  1.77517 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 bernoulli 9000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 9000 num_trials = 100 
+avg. tomography error =  2.0927 %, 100 trials 
+avg. in-network error =  1.63417 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 bernoulli 9000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 9000 num_trials = 100 
+avg. tomography error =  2.37877 %, 100 trials 
+avg. in-network error =  1.76806 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 bernoulli 9000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 9000 num_trials = 100 
+avg. tomography error =  2.68249 %, 100 trials 
+avg. in-network error =  1.66881 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 bernoulli 10000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 10000 num_trials = 100 
+avg. tomography error =  1.9449 %, 100 trials 
+avg. in-network error =  1.54433 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 bernoulli 10000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 10000 num_trials = 100 
+avg. tomography error =  2.2325 %, 100 trials 
+avg. in-network error =  1.64714 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 bernoulli 10000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = bernoulli num_probes = 10000 num_trials = 100 
+avg. tomography error =  2.51053 %, 100 trials 
+avg. in-network error =  1.58128 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 bernoulli 1000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 1000 num_trials = 100 
+avg. tomography error =  5.29298 %, 100 trials 
+avg. in-network error =  3.53 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 bernoulli 1000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 1000 num_trials = 100 
+avg. tomography error =  6.75129 %, 100 trials 
+avg. in-network error =  3.77238 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 bernoulli 1000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 1000 num_trials = 100 
+avg. tomography error =  7.93453 %, 100 trials 
+avg. in-network error =  3.74489 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 bernoulli 2000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 2000 num_trials = 100 
+avg. tomography error =  3.99524 %, 100 trials 
+avg. in-network error =  2.69722 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 bernoulli 2000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 2000 num_trials = 100 
+avg. tomography error =  4.7538 %, 100 trials 
+avg. in-network error =  2.69798 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 bernoulli 2000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 2000 num_trials = 100 
+avg. tomography error =  5.65057 %, 100 trials 
+avg. in-network error =  2.68183 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 bernoulli 3000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 3000 num_trials = 100 
+avg. tomography error =  3.27748 %, 100 trials 
+avg. in-network error =  2.26481 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 bernoulli 3000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 3000 num_trials = 100 
+avg. tomography error =  3.82088 %, 100 trials 
+avg. in-network error =  2.18452 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 bernoulli 3000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 3000 num_trials = 100 
+avg. tomography error =  4.52803 %, 100 trials 
+avg. in-network error =  2.19096 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 bernoulli 4000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 4000 num_trials = 100 
+avg. tomography error =  2.79165 %, 100 trials 
+avg. in-network error =  1.88681 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 bernoulli 4000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 4000 num_trials = 100 
+avg. tomography error =  3.46481 %, 100 trials 
+avg. in-network error =  1.93649 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 bernoulli 4000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 4000 num_trials = 100 
+avg. tomography error =  4.02055 %, 100 trials 
+avg. in-network error =  1.87575 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 bernoulli 5000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 5000 num_trials = 100 
+avg. tomography error =  2.42461 %, 100 trials 
+avg. in-network error =  1.69422 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 bernoulli 5000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 5000 num_trials = 100 
+avg. tomography error =  3.01892 %, 100 trials 
+avg. in-network error =  1.74662 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 bernoulli 5000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 5000 num_trials = 100 
+avg. tomography error =  3.57729 %, 100 trials 
+avg. in-network error =  1.7082 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 bernoulli 6000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 6000 num_trials = 100 
+avg. tomography error =  2.22664 %, 100 trials 
+avg. in-network error =  1.57065 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 bernoulli 6000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 6000 num_trials = 100 
+avg. tomography error =  2.74628 %, 100 trials 
+avg. in-network error =  1.59071 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 bernoulli 6000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 6000 num_trials = 100 
+avg. tomography error =  3.31218 %, 100 trials 
+avg. in-network error =  1.58722 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 bernoulli 7000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 7000 num_trials = 100 
+avg. tomography error =  2.07566 %, 100 trials 
+avg. in-network error =  1.44437 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 bernoulli 7000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 7000 num_trials = 100 
+avg. tomography error =  2.49308 %, 100 trials 
+avg. in-network error =  1.51327 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 bernoulli 7000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 7000 num_trials = 100 
+avg. tomography error =  2.9768 %, 100 trials 
+avg. in-network error =  1.44264 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 bernoulli 8000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 8000 num_trials = 100 
+avg. tomography error =  2.01221 %, 100 trials 
+avg. in-network error =  1.31486 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 bernoulli 8000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 8000 num_trials = 100 
+avg. tomography error =  2.38715 %, 100 trials 
+avg. in-network error =  1.3953 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 bernoulli 8000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 8000 num_trials = 100 
+avg. tomography error =  2.84683 %, 100 trials 
+avg. in-network error =  1.3524 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 bernoulli 9000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 9000 num_trials = 100 
+avg. tomography error =  1.96772 %, 100 trials 
+avg. in-network error =  1.25735 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 bernoulli 9000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 9000 num_trials = 100 
+avg. tomography error =  2.24601 %, 100 trials 
+avg. in-network error =  1.32434 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 bernoulli 9000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 9000 num_trials = 100 
+avg. tomography error =  2.67925 %, 100 trials 
+avg. in-network error =  1.28251 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 bernoulli 10000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 10000 num_trials = 100 
+avg. tomography error =  1.9091 %, 100 trials 
+avg. in-network error =  1.1705 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 bernoulli 10000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 10000 num_trials = 100 
+avg. tomography error =  2.08939 %, 100 trials 
+avg. in-network error =  1.24262 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 bernoulli 10000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = bernoulli num_probes = 10000 num_trials = 100 
+avg. tomography error =  2.5257 %, 100 trials 
+avg. in-network error =  1.22259 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 bernoulli 1000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 1000 num_trials = 100 
+avg. tomography error =  5.18511 %, 100 trials 
+avg. in-network error =  3.12208 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 bernoulli 1000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 1000 num_trials = 100 
+avg. tomography error =  7.11735 %, 100 trials 
+avg. in-network error =  3.06232 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 bernoulli 1000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 1000 num_trials = 100 
+avg. tomography error =  9.00973 %, 100 trials 
+avg. in-network error =  3.025 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 bernoulli 2000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 2000 num_trials = 100 
+avg. tomography error =  3.90445 %, 100 trials 
+avg. in-network error =  2.28042 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 bernoulli 2000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 2000 num_trials = 100 
+avg. tomography error =  5.03614 %, 100 trials 
+avg. in-network error =  2.20741 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 bernoulli 2000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 2000 num_trials = 100 
+avg. tomography error =  6.30692 %, 100 trials 
+avg. in-network error =  2.16492 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 bernoulli 3000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 3000 num_trials = 100 
+avg. tomography error =  3.21861 %, 100 trials 
+avg. in-network error =  1.80917 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 bernoulli 3000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 3000 num_trials = 100 
+avg. tomography error =  3.97001 %, 100 trials 
+avg. in-network error =  1.75274 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 bernoulli 3000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 3000 num_trials = 100 
+avg. tomography error =  5.21085 %, 100 trials 
+avg. in-network error =  1.78678 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 bernoulli 4000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 4000 num_trials = 100 
+avg. tomography error =  2.76036 %, 100 trials 
+avg. in-network error =  1.5699 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 bernoulli 4000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 4000 num_trials = 100 
+avg. tomography error =  3.40762 %, 100 trials 
+avg. in-network error =  1.52723 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 bernoulli 4000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 4000 num_trials = 100 
+avg. tomography error =  4.49442 %, 100 trials 
+avg. in-network error =  1.52594 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 bernoulli 5000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 5000 num_trials = 100 
+avg. tomography error =  2.43416 %, 100 trials 
+avg. in-network error =  1.39417 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 bernoulli 5000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 5000 num_trials = 100 
+avg. tomography error =  3.05292 %, 100 trials 
+avg. in-network error =  1.37871 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 bernoulli 5000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 5000 num_trials = 100 
+avg. tomography error =  4.06717 %, 100 trials 
+avg. in-network error =  1.37507 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 bernoulli 6000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 6000 num_trials = 100 
+avg. tomography error =  2.25753 %, 100 trials 
+avg. in-network error =  1.31382 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 bernoulli 6000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 6000 num_trials = 100 
+avg. tomography error =  2.89629 %, 100 trials 
+avg. in-network error =  1.29363 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 bernoulli 6000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 6000 num_trials = 100 
+avg. tomography error =  3.72785 %, 100 trials 
+avg. in-network error =  1.26607 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 bernoulli 7000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 7000 num_trials = 100 
+avg. tomography error =  2.12949 %, 100 trials 
+avg. in-network error =  1.19179 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 bernoulli 7000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 7000 num_trials = 100 
+avg. tomography error =  2.73592 %, 100 trials 
+avg. in-network error =  1.20867 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 bernoulli 7000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 7000 num_trials = 100 
+avg. tomography error =  3.43606 %, 100 trials 
+avg. in-network error =  1.15967 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 bernoulli 8000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 8000 num_trials = 100 
+avg. tomography error =  2.01714 %, 100 trials 
+avg. in-network error =  1.09833 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 bernoulli 8000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 8000 num_trials = 100 
+avg. tomography error =  2.48352 %, 100 trials 
+avg. in-network error =  1.12112 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 bernoulli 8000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 8000 num_trials = 100 
+avg. tomography error =  3.18441 %, 100 trials 
+avg. in-network error =  1.09232 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 bernoulli 9000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 9000 num_trials = 100 
+avg. tomography error =  1.91943 %, 100 trials 
+avg. in-network error =  1.0438 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 bernoulli 9000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 9000 num_trials = 100 
+avg. tomography error =  2.31784 %, 100 trials 
+avg. in-network error =  1.06954 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 bernoulli 9000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 9000 num_trials = 100 
+avg. tomography error =  2.9739 %, 100 trials 
+avg. in-network error =  1.02443 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 bernoulli 10000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 10000 num_trials = 100 
+avg. tomography error =  1.77882 %, 100 trials 
+avg. in-network error =  0.96033 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 bernoulli 10000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 10000 num_trials = 100 
+avg. tomography error =  2.21932 %, 100 trials 
+avg. in-network error =  1.01287 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 bernoulli 10000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = bernoulli num_probes = 10000 num_trials = 100 
+avg. tomography error =  2.81358 %, 100 trials 
+avg. in-network error =  0.97493 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 gilbert_elliot 10000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 10000 num_trials = 100 
+avg. tomography error =  37.91618 %, 100 trials 
+avg. in-network error =  33.536 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 gilbert_elliot 10000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 10000 num_trials = 100 
+avg. tomography error =  36.66515 %, 100 trials 
+avg. in-network error =  32.65786 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 gilbert_elliot 10000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.0148417072532288
+Post sanity check failed. Skipping this trial.
+
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 10000 num_trials = 100 
+avg. tomography error =  36.97852 %, 99 trials 
+avg. in-network error =  32.97557 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 gilbert_elliot 20000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 20000 num_trials = 100 
+avg. tomography error =  25.48571 %, 100 trials 
+avg. in-network error =  25.40408 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 gilbert_elliot 20000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 20000 num_trials = 100 
+avg. tomography error =  26.07062 %, 100 trials 
+avg. in-network error =  23.28429 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 gilbert_elliot 20000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 20000 num_trials = 100 
+avg. tomography error =  27.03667 %, 100 trials 
+avg. in-network error =  23.23427 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 gilbert_elliot 30000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 30000 num_trials = 100 
+avg. tomography error =  19.56967 %, 100 trials 
+avg. in-network error =  20.25278 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 gilbert_elliot 30000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 30000 num_trials = 100 
+avg. tomography error =  20.3295 %, 100 trials 
+avg. in-network error =  19.36681 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 gilbert_elliot 30000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 30000 num_trials = 100 
+avg. tomography error =  21.52708 %, 100 trials 
+avg. in-network error =  19.35999 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 gilbert_elliot 40000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 40000 num_trials = 100 
+avg. tomography error =  16.463 %, 100 trials 
+avg. in-network error =  17.39733 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 gilbert_elliot 40000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 40000 num_trials = 100 
+avg. tomography error =  17.82203 %, 100 trials 
+avg. in-network error =  16.50586 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 gilbert_elliot 40000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 40000 num_trials = 100 
+avg. tomography error =  18.6456 %, 100 trials 
+avg. in-network error =  16.98738 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 gilbert_elliot 50000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 50000 num_trials = 100 
+avg. tomography error =  16.12069 %, 100 trials 
+avg. in-network error =  15.30253 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 gilbert_elliot 50000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 50000 num_trials = 100 
+avg. tomography error =  16.14048 %, 100 trials 
+avg. in-network error =  14.73934 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 gilbert_elliot 50000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 50000 num_trials = 100 
+avg. tomography error =  16.87396 %, 100 trials 
+avg. in-network error =  15.19048 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 gilbert_elliot 60000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 60000 num_trials = 100 
+avg. tomography error =  14.59525 %, 100 trials 
+avg. in-network error =  13.88531 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 gilbert_elliot 60000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 60000 num_trials = 100 
+avg. tomography error =  14.45738 %, 100 trials 
+avg. in-network error =  13.25286 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 gilbert_elliot 60000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 60000 num_trials = 100 
+avg. tomography error =  15.26972 %, 100 trials 
+avg. in-network error =  13.66496 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 gilbert_elliot 70000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 70000 num_trials = 100 
+avg. tomography error =  13.56912 %, 100 trials 
+avg. in-network error =  13.00229 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 gilbert_elliot 70000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 70000 num_trials = 100 
+avg. tomography error =  13.97617 %, 100 trials 
+avg. in-network error =  12.48903 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 gilbert_elliot 70000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 70000 num_trials = 100 
+avg. tomography error =  14.04153 %, 100 trials 
+avg. in-network error =  12.71104 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 gilbert_elliot 80000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 80000 num_trials = 100 
+avg. tomography error =  12.64027 %, 100 trials 
+avg. in-network error =  12.07192 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 gilbert_elliot 80000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 80000 num_trials = 100 
+avg. tomography error =  13.21864 %, 100 trials 
+avg. in-network error =  11.37904 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 gilbert_elliot 80000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 80000 num_trials = 100 
+avg. tomography error =  13.19702 %, 100 trials 
+avg. in-network error =  11.89714 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 gilbert_elliot 90000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 90000 num_trials = 100 
+avg. tomography error =  12.17772 %, 100 trials 
+avg. in-network error =  11.39204 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 gilbert_elliot 90000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 90000 num_trials = 100 
+avg. tomography error =  12.35455 %, 100 trials 
+avg. in-network error =  10.96254 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 gilbert_elliot 90000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 90000 num_trials = 100 
+avg. tomography error =  12.4002 %, 100 trials 
+avg. in-network error =  11.11154 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.1 gilbert_elliot 100000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 100000 num_trials = 100 
+avg. tomography error =  11.77652 %, 100 trials 
+avg. in-network error =  10.77783 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.1 gilbert_elliot 100000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 100000 num_trials = 100 
+avg. tomography error =  11.33637 %, 100 trials 
+avg. in-network error =  10.42349 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.1 gilbert_elliot 100000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.1 dist_type = gilbert_elliot num_probes = 100000 num_trials = 100 
+avg. tomography error =  12.01107 %, 100 trials 
+avg. in-network error =  10.58007 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 gilbert_elliot 10000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.0783559000330865
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2048930517402585
+Post sanity check failed. Skipping this trial.
+
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 10000 num_trials = 100 
+avg. tomography error =  38.25784 %, 98 trials 
+avg. in-network error =  31.25475 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 gilbert_elliot 10000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.0330580007711503
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0242958922746639
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0595316833427602
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0411403548630813
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.017153728051161
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0198093797438754
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0323833246524459
+Post sanity check failed. Skipping this trial.
+
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 10000 num_trials = 100 
+avg. tomography error =  37.92225 %, 93 trials 
+avg. in-network error =  30.48811 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 gilbert_elliot 10000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.0004384969108757
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0394811132671604
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0488763497638018
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0208255686814884
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0372012301590892
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1204603378106202
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0195602768889287
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0179808322336148
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0041270089517422
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0016111830275287
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1239708594004212
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.133523188583298
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0165530819540336
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.005150224282264
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0029696245752808
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0043604520890965
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.004369617293225
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.041902952921294
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0627710356058697
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0511822934449835
+Post sanity check failed. Skipping this trial.
+
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 10000 num_trials = 100 
+avg. tomography error =  39.32062 %, 79 trials 
+avg. in-network error =  31.34223 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 gilbert_elliot 20000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 20000 num_trials = 100 
+avg. tomography error =  25.61824 %, 100 trials 
+avg. in-network error =  23.76879 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 gilbert_elliot 20000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 20000 num_trials = 100 
+avg. tomography error =  27.59954 %, 100 trials 
+avg. in-network error =  22.19539 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 gilbert_elliot 20000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.0029930360890746
+Post sanity check failed. Skipping this trial.
+
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 20000 num_trials = 100 
+avg. tomography error =  28.9766 %, 99 trials 
+avg. in-network error =  22.09427 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 gilbert_elliot 30000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 30000 num_trials = 100 
+avg. tomography error =  20.49104 %, 100 trials 
+avg. in-network error =  19.81608 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 gilbert_elliot 30000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 30000 num_trials = 100 
+avg. tomography error =  21.47635 %, 100 trials 
+avg. in-network error =  18.18621 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 gilbert_elliot 30000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 30000 num_trials = 100 
+avg. tomography error =  23.33744 %, 100 trials 
+avg. in-network error =  17.9579 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 gilbert_elliot 40000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 40000 num_trials = 100 
+avg. tomography error =  18.45612 %, 100 trials 
+avg. in-network error =  16.55931 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 gilbert_elliot 40000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 40000 num_trials = 100 
+avg. tomography error =  19.01026 %, 100 trials 
+avg. in-network error =  15.59979 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 gilbert_elliot 40000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 40000 num_trials = 100 
+avg. tomography error =  20.62325 %, 100 trials 
+avg. in-network error =  15.81048 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 gilbert_elliot 50000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 50000 num_trials = 100 
+avg. tomography error =  16.16403 %, 100 trials 
+avg. in-network error =  14.6054 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 gilbert_elliot 50000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 50000 num_trials = 100 
+avg. tomography error =  17.08143 %, 100 trials 
+avg. in-network error =  13.94413 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 gilbert_elliot 50000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 50000 num_trials = 100 
+avg. tomography error =  18.04518 %, 100 trials 
+avg. in-network error =  14.12817 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 gilbert_elliot 60000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 60000 num_trials = 100 
+avg. tomography error =  14.43772 %, 100 trials 
+avg. in-network error =  12.92136 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 gilbert_elliot 60000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 60000 num_trials = 100 
+avg. tomography error =  15.74691 %, 100 trials 
+avg. in-network error =  12.70563 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 gilbert_elliot 60000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 60000 num_trials = 100 
+avg. tomography error =  16.60138 %, 100 trials 
+avg. in-network error =  12.69052 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 gilbert_elliot 70000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 70000 num_trials = 100 
+avg. tomography error =  13.41859 %, 100 trials 
+avg. in-network error =  11.8638 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 gilbert_elliot 70000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 70000 num_trials = 100 
+avg. tomography error =  14.41196 %, 100 trials 
+avg. in-network error =  11.75029 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 gilbert_elliot 70000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 70000 num_trials = 100 
+avg. tomography error =  15.3725 %, 100 trials 
+avg. in-network error =  11.79529 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 gilbert_elliot 80000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 80000 num_trials = 100 
+avg. tomography error =  12.42139 %, 100 trials 
+avg. in-network error =  10.92267 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 gilbert_elliot 80000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 80000 num_trials = 100 
+avg. tomography error =  13.51826 %, 100 trials 
+avg. in-network error =  11.06996 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 gilbert_elliot 80000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 80000 num_trials = 100 
+avg. tomography error =  14.3935 %, 100 trials 
+avg. in-network error =  11.13253 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 gilbert_elliot 90000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 90000 num_trials = 100 
+avg. tomography error =  12.14755 %, 100 trials 
+avg. in-network error =  10.36108 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 gilbert_elliot 90000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 90000 num_trials = 100 
+avg. tomography error =  13.0251 %, 100 trials 
+avg. in-network error =  10.36686 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 gilbert_elliot 90000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 90000 num_trials = 100 
+avg. tomography error =  13.66988 %, 100 trials 
+avg. in-network error =  10.48948 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.2 gilbert_elliot 100000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 100000 num_trials = 100 
+avg. tomography error =  11.65249 %, 100 trials 
+avg. in-network error =  9.871 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.2 gilbert_elliot 100000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 100000 num_trials = 100 
+avg. tomography error =  12.1381 %, 100 trials 
+avg. in-network error =  9.6992 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.2 gilbert_elliot 100000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.2 dist_type = gilbert_elliot num_probes = 100000 num_trials = 100 
+avg. tomography error =  12.88571 %, 100 trials 
+avg. in-network error =  9.97549 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 gilbert_elliot 10000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.0407728961863172
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0274813504441722
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1280149583165384
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.006468486743107
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.047871525795488
+Post sanity check failed. Skipping this trial.
+
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 10000 num_trials = 100 
+avg. tomography error =  34.565 %, 95 trials 
+avg. in-network error =  29.21628 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 gilbert_elliot 10000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.050114110866847
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0175883108708121
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.055577656565736
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.070892063091288
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.03025375697947
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.3723933582235277
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1563030691438267
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1390996902937
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0278785215462782
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.017763296928525
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1142146954153551
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.018294919179865
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1571146831991164
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0018203095154037
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0375131596432514
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.110859489214074
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.20406986421751
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.4785234471281488
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0149760985087481
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0278281127656177
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2987120779926875
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0149126825730987
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0669761666784485
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0437722901439364
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0685265134438295
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0601347040986648
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.3120240217643229
+Post sanity check failed. Skipping this trial.
+
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 10000 num_trials = 100 
+avg. tomography error =  39.74843 %, 70 trials 
+avg. in-network error =  29.53112 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 gilbert_elliot 10000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.08500321992244
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.4472499120089999
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0975019484575816
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0792390342794067
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.449278835774595
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0058053245534277
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0315241879264423
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.072742340763653
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 3.6706647369680447
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0325697586521805
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1106088750668877
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.184658597784745
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0709615175769684
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1133306656666082
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1173883953396824
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1107027443107567
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0487268731014359
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2786400471746373
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0836651581946526
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0190949312906414
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2248356869342165
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0069094062445678
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1061681398421905
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2392421065171233
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1910425872249228
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0814699455950558
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0405898961534108
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0978686848389645
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0359638491068135
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0144105623532829
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.113272316393265
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0934888943884284
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000004
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1578823796402402
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2215643080480558
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0812066931811508
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1829857248034732
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0003081499786906
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0236463250799432
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.126111102921618
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0723839399414723
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.099961036689305
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0186409810880734
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.177964766384185
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1673407966807114
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.105417586920188
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.3322237015991623
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1299962918015756
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.183169463442175
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0097336777045547
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.117175820171961
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.081516150043631
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1574280089897506
+Post sanity check failed. Skipping this trial.
+
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 10000 num_trials = 100 
+avg. tomography error =  41.73129 %, 36 trials 
+avg. in-network error =  29.44241 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 gilbert_elliot 20000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 20000 num_trials = 100 
+avg. tomography error =  25.81689 %, 100 trials 
+avg. in-network error =  21.11917 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 gilbert_elliot 20000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.0303372280393084
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0857481290631261
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0234672709337376
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.024092129323117
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0239922957720706
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.018494082447545
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0074796206962524
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.005025178499323
+Post sanity check failed. Skipping this trial.
+
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 20000 num_trials = 100 
+avg. tomography error =  28.21427 %, 92 trials 
+avg. in-network error =  20.77333 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 gilbert_elliot 20000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.042252459801287
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.10842793827679
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.3969505285112744
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0958022159176957
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.002171213889453
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0057259397878084
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0970885112785398
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.034348675695521
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0413935404049794
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.076782274826915
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.036955372823712
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0075895904419854
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 20000 num_trials = 100 
+avg. tomography error =  32.49139 %, 87 trials 
+avg. in-network error =  20.84615 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 gilbert_elliot 30000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 30000 num_trials = 100 
+avg. tomography error =  21.16171 %, 100 trials 
+avg. in-network error =  17.53443 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 gilbert_elliot 30000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 30000 num_trials = 100 
+avg. tomography error =  23.66679 %, 100 trials 
+avg. in-network error =  16.75371 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 gilbert_elliot 30000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 30000 num_trials = 100 
+avg. tomography error =  26.05712 %, 100 trials 
+avg. in-network error =  17.35002 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 gilbert_elliot 40000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 40000 num_trials = 100 
+avg. tomography error =  18.29224 %, 100 trials 
+avg. in-network error =  15.16557 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 gilbert_elliot 40000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 40000 num_trials = 100 
+avg. tomography error =  20.99209 %, 100 trials 
+avg. in-network error =  14.51334 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 gilbert_elliot 40000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.011130869310883
+Post sanity check failed. Skipping this trial.
+
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 40000 num_trials = 100 
+avg. tomography error =  22.28944 %, 99 trials 
+avg. in-network error =  15.03947 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 gilbert_elliot 50000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 50000 num_trials = 100 
+avg. tomography error =  16.87485 %, 100 trials 
+avg. in-network error =  13.4595 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 gilbert_elliot 50000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 50000 num_trials = 100 
+avg. tomography error =  18.19989 %, 100 trials 
+avg. in-network error =  12.9681 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 gilbert_elliot 50000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 50000 num_trials = 100 
+avg. tomography error =  19.87322 %, 100 trials 
+avg. in-network error =  13.4919 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 gilbert_elliot 60000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 60000 num_trials = 100 
+avg. tomography error =  15.3505 %, 100 trials 
+avg. in-network error =  12.25117 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 gilbert_elliot 60000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 60000 num_trials = 100 
+avg. tomography error =  16.88555 %, 100 trials 
+avg. in-network error =  11.95891 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 gilbert_elliot 60000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.011397586024804
+Post sanity check failed. Skipping this trial.
+
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 60000 num_trials = 100 
+avg. tomography error =  18.5121 %, 99 trials 
+avg. in-network error =  12.25615 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 gilbert_elliot 70000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 70000 num_trials = 100 
+avg. tomography error =  14.58378 %, 100 trials 
+avg. in-network error =  11.17767 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 gilbert_elliot 70000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 70000 num_trials = 100 
+avg. tomography error =  15.23734 %, 100 trials 
+avg. in-network error =  11.16113 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 gilbert_elliot 70000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 70000 num_trials = 100 
+avg. tomography error =  17.60112 %, 100 trials 
+avg. in-network error =  11.31133 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 gilbert_elliot 80000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 80000 num_trials = 100 
+avg. tomography error =  13.95934 %, 100 trials 
+avg. in-network error =  10.89133 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 gilbert_elliot 80000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 80000 num_trials = 100 
+avg. tomography error =  14.74821 %, 100 trials 
+avg. in-network error =  10.34674 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 gilbert_elliot 80000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 80000 num_trials = 100 
+avg. tomography error =  16.22537 %, 100 trials 
+avg. in-network error =  10.61057 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 gilbert_elliot 90000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 90000 num_trials = 100 
+avg. tomography error =  12.77187 %, 100 trials 
+avg. in-network error =  10.28429 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 gilbert_elliot 90000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 90000 num_trials = 100 
+avg. tomography error =  13.58647 %, 100 trials 
+avg. in-network error =  9.73435 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 gilbert_elliot 90000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 90000 num_trials = 100 
+avg. tomography error =  15.37879 %, 100 trials 
+avg. in-network error =  10.09537 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.3 gilbert_elliot 100000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 100000 num_trials = 100 
+avg. tomography error =  11.6446 %, 100 trials 
+avg. in-network error =  9.52304 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.3 gilbert_elliot 100000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 100000 num_trials = 100 
+avg. tomography error =  13.08733 %, 100 trials 
+avg. in-network error =  9.17516 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.3 gilbert_elliot 100000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.3 dist_type = gilbert_elliot num_probes = 100000 num_trials = 100 
+avg. tomography error =  14.61435 %, 100 trials 
+avg. in-network error =  9.48752 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 gilbert_elliot 10000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.0615468398463266
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.4133777230844733
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.035180916578188
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0635529196803768
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.3752399970179927
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.162986909954829
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.3247543394335373
+Post sanity check failed. Skipping this trial.
+
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 10000 num_trials = 100 
+avg. tomography error =  35.0281 %, 92 trials 
+avg. in-network error =  27.71425 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 gilbert_elliot 10000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.1661684076570205
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000004
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0849116150908051
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0284730483423055
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 2.033412439186572
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0936414749324137
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1861223294034298
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0057632123719031
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2495352877904937
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0122272598490814
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.053568540577132
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 3.72761531513312
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.5118911298814608
+Post sanity check failed. Skipping this trial.
+
+Condition iv' (floating point error): node.left.gamma, node.right.gamma, node.gamma 0.0188 0.1698 0.1886
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.051270593056003
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0060509937367912
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 3.6937126923092847
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2124949647203862
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 2.3641009792829806
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1561180737531567
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.044742349755133
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2405052005581494
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 2.2827868508666724
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0871139799233323
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.4695304638150382
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2059308923528642
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0415035634566963
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.3703967252878055
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.5382598669317333
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0268 0.2214 0.2482
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.6710260627552669
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.1287 0.0136 0.1423
+Pre sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0881 0.0503 0.1384
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.4977915164468454
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 2.104715936157911
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.157718514330594
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.4434474146425915
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 23.627500154542243
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0184 0.1578 0.1762
+Pre sanity check failed. Skipping this trial.
+
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 10000 num_trials = 100 
+avg. tomography error =  40.25853 %, 50 trials 
+avg. in-network error =  28.18959 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 gilbert_elliot 10000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.525096907329526
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0374465984479717
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1067537141652484
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 4.150301480838492
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1634871735662684
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 3.044158220851833
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.147043946093498
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.304470339989614
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0 0.0158 0.0158
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.235618680749772
+Post sanity check failed. Skipping this trial.
+
+Condition iv' (floating point error): node.left.gamma, node.right.gamma, node.gamma 0.0443 0.073 0.1173
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1169679802423351
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.007057715509358
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.06572034202331
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0158 0.1031 0.1189
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 2.351929046738411
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0201 0.0933 0.1134
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.4692401682071539
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.08 0.1077 0.1877
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0982920902510973
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000007
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1149467319117374
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0913 0.0 0.0913
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2078102895178924
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2057729226124676
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000004
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.8671862649826338
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0609 0.0124 0.0733
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0704324097705467
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.3021794110373655
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0618 0.0576 0.1194
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1270017560190912
+Post sanity check failed. Skipping this trial.
+
+Condition iv' (floating point error): node.left.gamma, node.right.gamma, node.gamma 0.0095 0.0672 0.0767
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1205332156766497
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.4203374573692749
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.022281388754759
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0083899860611942
+Post sanity check failed. Skipping this trial.
+
+Condition iv' (floating point error): node.left.gamma, node.right.gamma, node.gamma 0.1054 0.1863 0.2917
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.4206516899326367
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.6748449914999568
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0049 0.0 0.0049
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0145536365335046
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1254058442979478
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0208 0.0 0.0208
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.7985652615688958
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2328874815926758
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0265 0.0551 0.0816
+Pre sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0105 0.0 0.0105
+Pre sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0516 0.1051 0.1567
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0218396177331157
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0 0.0423 0.0423
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.521117547010623
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 2.4281442160802107
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.9420010913792325
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0157381007368242
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2850787550031624
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0144 0.0577 0.0721
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 3.02713645794168
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.7315376712328756
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0751060092763574
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.4188728874967385
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.114873994112614
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0186965269829273
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.9772216785718375
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0402 0.0 0.0402
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0275854482596056
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.702965874658077
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0698 0.107 0.1768
+Pre sanity check failed. Skipping this trial.
+
+Condition iv' (floating point error): node.left.gamma, node.right.gamma, node.gamma 0.0323 0.0188 0.0511
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0237031559420249
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0937501745900096
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0489 0.078 0.1269
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.6576617999569843
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.4219427867292553
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1613759693842904
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.112298473623434
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.1564 0.0 0.1564
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.002257179361565
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1151649231676803
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.0545 0.0012 0.0557
+Pre sanity check failed. Skipping this trial.
+
+Condition iv' (floating point error): node.left.gamma, node.right.gamma, node.gamma 0.0188 0.006 0.0248
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0445090731732996
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.5389110067850575
+Post sanity check failed. Skipping this trial.
+
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 10000 num_trials = 100 
+avg. tomography error =  43.59681 %, 4 trials 
+avg. in-network error =  27.50797 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 gilbert_elliot 20000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.2243217681247427
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0192160051184427
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.289845366212266
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1340728404348461
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.002314518845614
+Post sanity check failed. Skipping this trial.
+
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 20000 num_trials = 100 
+avg. tomography error =  27.11361 %, 95 trials 
+avg. in-network error =  19.85931 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 gilbert_elliot 20000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.5582380353751637
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1260470388045116
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1844896222582726
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0158486276817087
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1317807116634866
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0211775376521621
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1028323897909489
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.029966618920342
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0376078338837702
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1363482018125577
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0620797857829811
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.023204033487822
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0572349551583422
+Post sanity check failed. Skipping this trial.
+
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 20000 num_trials = 100 
+avg. tomography error =  30.61878 %, 86 trials 
+avg. in-network error =  19.06307 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 gilbert_elliot 20000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.09498225406402
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0039896772845236
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2769460284554814
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.5017817896897603
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1368787446903568
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.059696659092565
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0198779374411693
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1331989525271893
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.3154961981367397
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1012894818432104
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.019575586522832
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.147474970350751
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.860282296784509
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 2.063880988767681
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.4136768262890478
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0363305631579633
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.00878979291742
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0578751592377829
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1368427935151066
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0134300453090281
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.9455752830213802
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.237640908802555
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.188382795602517
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.022007542876493
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2381044037175362
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.7042966707557996
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1319345951048378
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2034440477137889
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 2.093475242535286
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.3333133187465602
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0426002545793307
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 2.001855347455184
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1397427902441173
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.051914543553013
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0882028071157523
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.161471427748815
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.5764150275671454
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0328835848409144
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0051322901235695
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0508809395807752
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0536489832945901
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0376680555147788
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.6654766432210444
+Post sanity check failed. Skipping this trial.
+
+Condition iv: node.left.gamma, node.right.gamma, node.gamma 0.06045 0.11505 0.1755
+Pre sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0277410845349864
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 2.7411624061367053
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.106094593714543
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0000000000000002
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0221907886780492
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.4774844819042812
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1456982585865
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2774398709669295
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1481571533632429
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 2.4087054125361766
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.6723786349538197
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0086181589833831
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.5346211669313758
+Post sanity check failed. Skipping this trial.
+
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 20000 num_trials = 100 
+avg. tomography error =  35.51055 %, 39 trials 
+avg. in-network error =  19.14356 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 gilbert_elliot 30000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 30000 num_trials = 100 
+avg. tomography error =  22.8469 %, 100 trials 
+avg. in-network error =  16.34575 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 gilbert_elliot 30000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.0060789074942191
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0397397384860216
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0086716908922904
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.134740408713588
+Post sanity check failed. Skipping this trial.
+
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 30000 num_trials = 100 
+avg. tomography error =  26.45129 %, 96 trials 
+avg. in-network error =  15.64259 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 gilbert_elliot 30000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.2249777610385153
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0717585282585331
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0089903706006353
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.046915248647563
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1713906809082932
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0148967862193685
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.3563140401357574
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.011319919006048
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1393522470353883
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.206731136982433
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.052536051908443
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0852879539921167
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0158400561321093
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0880206020788552
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0592124657274142
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.071699543590167
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.3332405037428223
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.276514812643324
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1823206152117125
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.033706542638034
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2803721112927944
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0277635248880759
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.126744353263251
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0952983981509936
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1550315061510807
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0101483580396093
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.6541675864235952
+Post sanity check failed. Skipping this trial.
+
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 30000 num_trials = 100 
+avg. tomography error =  29.74683 %, 73 trials 
+avg. in-network error =  15.78993 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 gilbert_elliot 40000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 40000 num_trials = 100 
+avg. tomography error =  19.63782 %, 100 trials 
+avg. in-network error =  13.73235 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 gilbert_elliot 40000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.0001927657990994
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0037624376362622
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1854864966991523
+Post sanity check failed. Skipping this trial.
+
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 40000 num_trials = 100 
+avg. tomography error =  23.05138 %, 97 trials 
+avg. in-network error =  13.71062 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 gilbert_elliot 40000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.0126926632452964
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0175619676248193
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0040766374744907
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0003650681289677
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.2353141087251147
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.5604891193038557
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.3510568990531076
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0241516599305234
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1796169219463652
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0711929058355243
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0375193124400541
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.1958760116035891
+Post sanity check failed. Skipping this trial.
+
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 40000 num_trials = 100 
+avg. tomography error =  25.08877 %, 88 trials 
+avg. in-network error =  13.8592 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 gilbert_elliot 50000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 50000 num_trials = 100 
+avg. tomography error =  17.06349 %, 100 trials 
+avg. in-network error =  12.53098 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 gilbert_elliot 50000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 50000 num_trials = 100 
+avg. tomography error =  20.7329 %, 100 trials 
+avg. in-network error =  11.98303 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 gilbert_elliot 50000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.0555814660715104
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0651820705338801
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0598014426568685
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0287702017053715
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0098456227357708
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0917462014674681
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.0276610312531802
+Post sanity check failed. Skipping this trial.
+
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 50000 num_trials = 100 
+avg. tomography error =  23.74574 %, 93 trials 
+avg. in-network error =  12.41162 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 gilbert_elliot 60000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 60000 num_trials = 100 
+avg. tomography error =  15.60995 %, 100 trials 
+avg. in-network error =  11.59699 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 gilbert_elliot 60000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 60000 num_trials = 100 
+avg. tomography error =  18.29705 %, 100 trials 
+avg. in-network error =  10.9815 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 gilbert_elliot 60000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.0032251349063
+Post sanity check failed. Skipping this trial.
+
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 60000 num_trials = 100 
+avg. tomography error =  22.40718 %, 99 trials 
+avg. in-network error =  11.26697 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 gilbert_elliot 70000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 70000 num_trials = 100 
+avg. tomography error =  14.596 %, 100 trials 
+avg. in-network error =  10.49167 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 gilbert_elliot 70000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 70000 num_trials = 100 
+avg. tomography error =  17.29655 %, 100 trials 
+avg. in-network error =  10.30592 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 gilbert_elliot 70000 100  succeeded with stdout:
+Condition ii/iii: node.alpha is 1.0819085121086682
+Post sanity check failed. Skipping this trial.
+
+Condition ii/iii: node.alpha is 1.036025980418429
+Post sanity check failed. Skipping this trial.
+
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 70000 num_trials = 100 
+avg. tomography error =  20.58746 %, 98 trials 
+avg. in-network error =  10.30426 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 gilbert_elliot 80000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 80000 num_trials = 100 
+avg. tomography error =  13.87537 %, 100 trials 
+avg. in-network error =  10.03714 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 gilbert_elliot 80000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 80000 num_trials = 100 
+avg. tomography error =  15.64489 %, 100 trials 
+avg. in-network error =  9.55346 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 gilbert_elliot 80000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 80000 num_trials = 100 
+avg. tomography error =  19.08078 %, 100 trials 
+avg. in-network error =  9.57745 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 gilbert_elliot 90000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 90000 num_trials = 100 
+avg. tomography error =  13.03258 %, 100 trials 
+avg. in-network error =  9.24833 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 gilbert_elliot 90000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 90000 num_trials = 100 
+avg. tomography error =  14.6242 %, 100 trials 
+avg. in-network error =  9.02294 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 gilbert_elliot 90000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 90000 num_trials = 100 
+avg. tomography error =  17.68467 %, 100 trials 
+avg. in-network error =  9.06138 %, 100 trials
+
+===========================================================================================
+./simulation.py 3 loss 0.4 gilbert_elliot 100000 100  succeeded with stdout:
+Depth = 3 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 100000 num_trials = 100 
+avg. tomography error =  12.40986 %, 100 trials 
+avg. in-network error =  8.70197 %, 100 trials
+
+===========================================================================================
+./simulation.py 4 loss 0.4 gilbert_elliot 100000 100  succeeded with stdout:
+Depth = 4 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 100000 num_trials = 100 
+avg. tomography error =  14.46469 %, 100 trials 
+avg. in-network error =  8.62944 %, 100 trials
+
+===========================================================================================
+./simulation.py 5 loss 0.4 gilbert_elliot 100000 100  succeeded with stdout:
+Depth = 5 expt_type = loss mean_delay_or_loss = 0.4 dist_type = gilbert_elliot num_probes = 100000 num_trials = 100 
+avg. tomography error =  16.68465 %, 100 trials 
+avg. in-network error =  8.61473 %, 100 trials
+
+===========================================================================================

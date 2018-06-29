@@ -32,7 +32,7 @@ for i in range(1, num_trials + 1):
       node.tick()
     in_network_tree.send_independent_probes()
 
-  # Compute max errors for in network approach
+  # Compute mean errors for in network approach
   node_true_errors = []
   for node in in_network_tree.nodes():
     if node != in_network_tree:
@@ -64,7 +64,7 @@ for i in range(1, num_trials + 1):
     print("Post sanity check failed. Skipping this trial.\n")
     continue
 
-  # Compute max errors for tomography
+  # Compute mean errors for tomography
   node_tomography_errors = []
   for node in mcast_tree.nodes():
     if node != mcast_tree:
@@ -72,7 +72,7 @@ for i in range(1, num_trials + 1):
 
   mean_tomography_errors += [mean(node_tomography_errors)]
 
-# print out average of max errors
+# print out average of mean errors
 print("Depth =", depth, "expt_type =", expt_type, "mean_delay_or_loss =", mean_delay_or_loss, "dist_type =", dist_type, \
       "num_probes =", num_probes, "num_trials =", num_trials,
       "\navg. tomography error = ", round(mean(mean_tomography_errors), 5) if len(mean_tomography_errors) > 0 else "undef",\

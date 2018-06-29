@@ -3,6 +3,7 @@
 import numpy
 import sys
 from statistics import mean
+from scipy.stats.mstats import gmean
 from tree import Tree
 from loss_mle import LossTomographyMle
 
@@ -36,9 +37,9 @@ for i in range(1, num_trials + 1):
   node_true_errors = []
   for node in in_network_tree.nodes():
     if node != in_network_tree:
-      node_true_errors += [round(100.0 * abs(node.true_loss - float(mean_delay_or_loss)) / float(mean_delay_or_loss), 5)]
+      node_true_errors += [node.true_loss / float(mean_delay_or_loss)]
 
-  mean_true_errors += [mean(node_true_errors)]
+  mean_true_errors += [gmean(node_true_errors)]
 
   # multicast tomography based approach
   mcast_tree = Tree(depth, expt_type, mean_delay_or_loss, dist_type)
@@ -68,14 +69,14 @@ for i in range(1, num_trials + 1):
   node_tomography_errors = []
   for node in mcast_tree.nodes():
     if node != mcast_tree:
-      node_tomography_errors += [round(100.0 * abs(1 - node.alpha - float(mean_delay_or_loss)) / float(mean_delay_or_loss), 5)]
+      node_tomography_errors += [abs((1 - node.alpha) / float(mean_delay_or_loss))]
 
-  mean_tomography_errors += [mean(node_tomography_errors)]
+  mean_tomography_errors += [gmean(node_tomography_errors)]
 
 # print out average of mean errors
 print("Depth =", depth, "expt_type =", expt_type, "mean_delay_or_loss =", mean_delay_or_loss, "dist_type =", dist_type, \
       "num_probes =", num_probes, "num_trials =", num_trials,
-      "\navg. tomography error = ", round(mean(mean_tomography_errors), 5) if len(mean_tomography_errors) > 0 else "undef",\
-      "%,", len(mean_tomography_errors), "trials",\
-      "\navg. in-network error = ", round(mean(mean_true_errors), 5),\
-      "%,", len(mean_true_errors), "trials")
+      "\navg. tomography ratio = ", round(gmean(mean_tomography_errors), 5) if len(mean_tomography_errors) > 0 else "undef",\
+      ",", len(mean_tomography_errors), "trials",\
+      "\navg. in-network ratio = ", round(gmean(mean_true_errors), 5),\
+      ",", len(mean_true_errors), "trials")

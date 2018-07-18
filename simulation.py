@@ -1,5 +1,6 @@
 #! /usr/local/bin/python3
 
+import math
 import numpy
 import sys
 from statistics import mean
@@ -39,6 +40,10 @@ for i in range(1, num_trials + 1):
       node_true_errors += [round(100.0 * abs(node.true_loss - float(mean_delay_or_loss)) / float(mean_delay_or_loss), 5)]
 
   mean_true_errors += [mean(node_true_errors)]
+  std_dev_true_errors = numpy.std(mean_true_errors)
+  confidence_true_errors = (std_dev_true_errors * 1.96) / math.sqrt(len(mean_true_errors))
+  true_lower_conf = mean(mean_true_errors) - confidence_true_errors
+  true_upper_conf = mean(mean_true_errors) + confidence_true_errors
 
   # multicast tomography based approach
   mcast_tree = Tree(depth, expt_type, mean_delay_or_loss, dist_type)
@@ -71,11 +76,17 @@ for i in range(1, num_trials + 1):
       node_tomography_errors += [round(100.0 * abs(1 - node.alpha - float(mean_delay_or_loss)) / float(mean_delay_or_loss), 5)]
 
   mean_tomography_errors += [mean(node_tomography_errors)]
+  std_dev_tomography_errors = numpy.std(mean_tomography_errors)
+  confidence_tomography = (std_dev_tomography_errors * 1.96) / math.sqrt(len(mean_tomography_errors))
+  tomography_lower_conf = mean(mean_tomography_errors) - confidence_tomography
+  tomography_upper_conf = mean(mean_tomography_errors) + confidence_tomography
 
 # print out average of mean errors
 print("Depth =", depth, "expt_type =", expt_type, "mean_delay_or_loss =", mean_delay_or_loss, "dist_type =", dist_type, \
       "num_probes =", num_probes, "num_trials =", num_trials,
       "\navg. tomography error = ", round(mean(mean_tomography_errors), 5) if len(mean_tomography_errors) > 0 else "undef",\
-      "%,", len(mean_tomography_errors), "trials",\
+      "%,", len(mean_tomography_errors), "trials", round(tomography_lower_conf, 5) if len(mean_tomography_errors) > 0 else "undef", "lower conf. int", round(tomography_upper_conf, 5) if len(mean_tomography_errors) > 0 else "undef", "upper conf. int"\
       "\navg. in-network error = ", round(mean(mean_true_errors), 5),\
-      "%,", len(mean_true_errors), "trials")
+      "%,", len(mean_true_errors), "trials", round(true_lower_conf, 5) if len(mean_true_errors) > 0 else "undef", "lower conf. int", round(true_upper_conf, 5) if len(mean_true_errors) > 0 else "undef", "upper conf. int")
+      
+# std_dev * 1.96 / (srt successful_trials)

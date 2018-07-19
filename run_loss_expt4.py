@@ -23,7 +23,7 @@ def program_wrapper(program, t_stdout = subprocess.PIPE, t_stderr = subprocess.P
     return (out, err)
 
 if (sys.argv[1] == "hi-loss"):
-  loss_rates = [20]             # <== CHANGE THIS TO GRAPH A DIFFERENT LOSS PROB
+  loss_rates = [30]             # <== CHANGE THIS TO GRAPH A DIFFERENT LOSS PROB
 else:
   loss_rates = [1]              # <== CHANGE THIS TO GRAPH A DIFFERENT LOSS PROB
 

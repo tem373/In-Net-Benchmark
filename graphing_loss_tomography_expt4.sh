@@ -41,29 +41,31 @@ do
 	cat tmp_bern_$1.csv | cut -d "," -f 4,6,7,8,9,10,11,12,13 > tmp_output.csv
 
 	gnuplot -persist <<-EOFMarker
-		set term png
+		set terminal postscript dashed color font "Helvetica, 17"
 		set xlabel "Number of Packets"
-		set ylabel "Error Rate (%)"
-		set y2label "Number of Successful Trials (out of 100)"
+		set ylabel "Error Rate (%)" offset 2,0,0
+		set y2label "Number of Successful Trials (out of 100)" offset -3,0,0
 		set key top right
 		set datafile separator ","
 		set yrange [0:]
 		set y2range [0:100]
 		set xrange [:1000]
 		set y2tics
-		set output "graphs_tmp/output.png"
-		plot 'tmp_output.csv'  using 1:2:4:5  with yerrorlines axes x1y1 lw 3 lt 1 lc rgb "#e41a1c" title "Tomography error rate",\
-			 'tmp_output.csv'  using 1:6:8:9  with yerrorlines axes x1y1 lw 3 lt 1 lc rgb "#041aac" title "in-network error rate" ,\
-			 'tmp_output.csv'  using 1:3  with linespoints axes x1y2 lw 3 lt 1 lc rgb "#59A7ac" title "Tomography trial failures",\
-		     'tmp_output.csv'  using 1:7  with linespoints axes x1y2 lw 3 lt 1 lc rgb "#faaaaa" title "in-network trial failures"
+		set lmargin 6
+		set rmargin 7
+		set output "graphs_tmp/output.eps"
+		plot 'tmp_output.csv'  using 1:2:4:5  with yerrorlines axes x1y1 lw 3 dashtype 1 pointtype 6 lt 1 lc rgb "#e41a1c" title "Tomography Error Rate (%)",\
+			 'tmp_output.csv'  using 1:6:8:9  with yerrorlines axes x1y1 lw 3 dashtype 1 pointtype 2 lt 1 lc rgb "#041aac" title "In-Network Error Rate (%)" ,\
+			 'tmp_output.csv'  using 1:3  with linespoints axes x1y2 lw 3 dashtype 1 pointtype 1 lt 1 lc rgb "#59A7ac" title "Tomography Trial Successes",\
+		     'tmp_output.csv'  using 1:7  with linespoints axes x1y2 lw 3 dashtype 1 pointtype 8 lt 1 lc rgb "#faaaaa" title "In-Network Trial Successes"
 	EOFMarker
 	#		     'tmp_output.csv'  using 1:4  with lines axes x1y1 lw 2 lt 1 lc rgb "#e41a1c" title "Upper confidence interval",\
 	#			 'tmp_output.csv'  using 1:5  with lines axes x1y1 lw 2 lt 1 lc rgb "#e41a1c" title "Lower confidence interval",\
 
 		#		     'tmp_output.csv'  using 1:8  with lines axes x1y1 lw 2 lt 1 lc rgb "#041aac" title "upper confidence interval" ,\
 		#			 'tmp_output.csv'  using 1:9  with lines axes x1y1 lw 2 lt 1 lc rgb "#041aac" title "lower confidence interval" ,\
-	
-	mv graphs_tmp/output.png graphs_tmp/num_probes_with_bern_lossrate_$each.png
+	epstopdf graphs_tmp/output.eps
+	mv graphs_tmp/output.pdf graphs_tmp/num_probes_with_bern_lossrate_$each.pdf
 done
 
 # Cleanup tmp files
